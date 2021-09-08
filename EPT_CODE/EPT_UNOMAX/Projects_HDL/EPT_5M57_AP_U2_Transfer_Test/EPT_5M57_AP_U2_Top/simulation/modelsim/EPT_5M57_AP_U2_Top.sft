@@ -1,0 +1,4 @@
+set tool_name "ModelSim-Altera (VHDL)"
+set corner_file_list {
+    {{"Slow Model"} {EPT_5M57_AP_U2_Top.vho EPT_5M57_AP_U2_Top_vhd.sdo}}
+}

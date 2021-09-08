@@ -1,0 +1,1487 @@
+// Copyright (C) 1991-2011 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 32-bit"
+// VERSION "Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition"
+
+// DATE "11/11/2012 17:11:59"
+
+module 	active_block (
+	uc_out,
+	transfer_received,
+	transfer_ready,
+	transfer_busy,
+	ept_length,
+	transfer_to_device,
+	uc_clk,
+	uc_reset,
+	uc_in,
+	start_transfer,
+	uc_addr,
+	uc_length,
+	transfer_to_host);
+output 	[21:0] uc_out;
+output 	transfer_received;
+output 	transfer_ready;
+output 	transfer_busy;
+output 	[7:0] ept_length;
+output 	[7:0] transfer_to_device;
+input 	uc_clk;
+input 	uc_reset;
+input 	[23:0] uc_in;
+input 	start_transfer;
+input 	[2:0] uc_addr;
+input 	[7:0] uc_length;
+input 	[7:0] transfer_to_host;
+wire \LessThan0~5 ;
+wire \LessThan0~10 ;
+wire \LessThan0~15 ;
+wire \LessThan0~20 ;
+wire \LessThan0~25 ;
+wire \LessThan0~30 ;
+wire \LessThan0~35 ;
+wire \data_count[0]~16 ;
+wire \data_count[0] ;
+wire \data_count[0]~1 ;
+wire \data_count[0]~1COUT1_25 ;
+wire \data_count[1] ;
+wire \data_count[1]~3 ;
+wire \data_count[1]~3COUT1_27 ;
+wire \data_count[2] ;
+wire \data_count[2]~5 ;
+wire \data_count[2]~5COUT1_29 ;
+wire \data_count[3] ;
+wire \data_count[3]~7 ;
+wire \data_count[3]~7COUT1_31 ;
+wire \data_count[4] ;
+wire \data_count[4]~9 ;
+wire \data_count[5] ;
+wire \data_count[5]~11 ;
+wire \data_count[5]~11COUT1_33 ;
+wire \data_count[6] ;
+wire \data_count[6]~13 ;
+wire \data_count[6]~13COUT1_35 ;
+wire \data_count[7] ;
+wire \LessThan1~1 ;
+wire \LessThan1~0 ;
+wire \LessThan1~2 ;
+wire \block_transfer_state.TRANSFER_BYTE ;
+wire \block_transfer_state.END_TRANSFER ;
+wire \block_transfer_state_counter[0] ;
+wire \block_transfer_state.IDLE ;
+wire \block_transfer_state.SEND_COMMAND ;
+wire \Selector8~0 ;
+wire \uc_out[0]~reg0 ;
+wire \uc_out[1]~reg0 ;
+wire \uc_out[2]~reg0 ;
+wire \uc_out[3]~reg0 ;
+wire \uc_out[4]~reg0 ;
+wire \uc_out[5]~reg0 ;
+wire \uc_out[6]~reg0 ;
+wire \uc_out[7]~reg0 ;
+wire \uc_out~2 ;
+wire \uc_out~3 ;
+wire \uc_out~4 ;
+wire \uc_out~5 ;
+wire \uc_out~6 ;
+wire \uc_out~7 ;
+wire \uc_out~8 ;
+wire \uc_out~9 ;
+wire \uc_out~10 ;
+wire \uc_out~11 ;
+wire \uc_out~12 ;
+wire \uc_out~13 ;
+wire \uc_out~14 ;
+wire \next_in~1 ;
+wire \next_in~2 ;
+wire \next_in[2]~5 ;
+wire \ept_length[7]~reg0 ;
+wire \always2~0 ;
+wire \transfer_received_count[2]~16 ;
+wire \transfer_received_count[0] ;
+wire \transfer_received_count[0]~1 ;
+wire \transfer_received_count[0]~1COUT1_25 ;
+wire \transfer_received_count[1] ;
+wire \transfer_received_count[1]~3 ;
+wire \transfer_received_count[1]~3COUT1_27 ;
+wire \transfer_received_count[2] ;
+wire \transfer_received_count[2]~13 ;
+wire \transfer_received_count[2]~13COUT1_29 ;
+wire \transfer_received_count[3] ;
+wire \transfer_received_count[3]~15 ;
+wire \transfer_received_count[3]~15COUT1_31 ;
+wire \transfer_received_count[4] ;
+wire \transfer_received_count[4]~5 ;
+wire \transfer_received_count[5] ;
+wire \transfer_received_count[5]~7 ;
+wire \transfer_received_count[5]~7COUT1_33 ;
+wire \transfer_received_count[6] ;
+wire \transfer_received_count[6]~9 ;
+wire \transfer_received_count[6]~9COUT1_35 ;
+wire \transfer_received_count[7] ;
+wire \ept_length[4]~reg0 ;
+wire \ept_length[3]~reg0 ;
+wire \ept_length[2]~reg0 ;
+wire \ept_length[1]~reg0 ;
+wire \ept_length[0]~reg0 ;
+wire \LessThan0~37 ;
+wire \LessThan0~37COUT1_48 ;
+wire \LessThan0~32 ;
+wire \LessThan0~32COUT1_50 ;
+wire \LessThan0~27 ;
+wire \LessThan0~27COUT1_52 ;
+wire \LessThan0~22 ;
+wire \LessThan0~22COUT1_54 ;
+wire \LessThan0~17 ;
+wire \ept_length[6]~reg0 ;
+wire \ept_length[5]~reg0 ;
+wire \LessThan0~12 ;
+wire \LessThan0~12COUT1_56 ;
+wire \LessThan0~7 ;
+wire \LessThan0~7COUT1_58 ;
+wire \LessThan0~0 ;
+wire \state_in[4] ;
+wire \state_in[3] ;
+wire \Equal2~1 ;
+wire \Equal2~0 ;
+wire \Equal2~2 ;
+wire \state_in[5] ;
+wire \state_in[0] ;
+wire \state_in[1] ;
+wire \state_in[2] ;
+wire \transfer_received~reg0 ;
+wire \transfer_to_device[0]~0 ;
+wire \transfer_to_device[0]~reg0 ;
+wire \transfer_to_device[1]~reg0 ;
+wire \transfer_to_device[2]~reg0 ;
+wire \transfer_to_device[3]~reg0 ;
+wire \transfer_to_device[4]~reg0 ;
+wire \transfer_to_device[5]~reg0 ;
+wire \transfer_to_device[6]~reg0 ;
+wire \transfer_to_device[7]~reg0 ;
+wire [1:0] block_transfer_state_counter;
+wire [7:0] data_count;
+wire [5:0] state_in;
+wire [7:0] transfer_received_count;
+
+wire __ALT_INV__uc_reset;
+wire \__ALT_INV__block_transfer_state.TRANSFER_BYTE ;
+
+wire gnd;
+wire vcc;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+
+assign __ALT_INV__uc_reset = ~ uc_reset;
+assign \__ALT_INV__block_transfer_state.TRANSFER_BYTE  = ~ \block_transfer_state.TRANSFER_BYTE ;
+
+maxii_lcell \data_count[0]~16_I (
+	.dataa(\block_transfer_state.TRANSFER_BYTE ),
+	.datab(uc_in[22]),
+	.datac(\LessThan1~2 ),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.combout(\data_count[0]~16 ));
+defparam \data_count[0]~16_I .operation_mode = "normal";
+defparam \data_count[0]~16_I .synch_mode = "off";
+defparam \data_count[0]~16_I .register_cascade_mode = "off";
+defparam \data_count[0]~16_I .sum_lutc_input = "datac";
+defparam \data_count[0]~16_I .lut_mask = "D580";
+defparam \data_count[0]~16_I .output_mode = "comb_only";
+
+maxii_lcell \data_count[0]~I (
+	.clk(uc_clk),
+	.datab(\data_count[0] ),
+	.datac(uc_length[0]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(\__ALT_INV__block_transfer_state.TRANSFER_BYTE ),
+	.ena(\data_count[0]~16 ),
+	.regout(\data_count[0] ),
+	.cout(\data_count[0]~1 ));
+defparam \data_count[0]~I .operation_mode = "arithmetic";
+defparam \data_count[0]~I .synch_mode = "on";
+defparam \data_count[0]~I .register_cascade_mode = "off";
+defparam \data_count[0]~I .sum_lutc_input = "datac";
+defparam \data_count[0]~I .lut_mask = "33CC";
+defparam \data_count[0]~I .output_mode = "reg_only";
+
+maxii_lcell \data_count[1]~I (
+	.clk(uc_clk),
+	.datab(\data_count[1] ),
+	.datac(uc_length[1]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(\__ALT_INV__block_transfer_state.TRANSFER_BYTE ),
+	.ena(\data_count[0]~16 ),
+	.cin(\data_count[0]~1 ),
+	.regout(\data_count[1] ),
+	.cout(\data_count[1]~3 ));
+defparam \data_count[1]~I .operation_mode = "arithmetic";
+defparam \data_count[1]~I .synch_mode = "on";
+defparam \data_count[1]~I .register_cascade_mode = "off";
+defparam \data_count[1]~I .sum_lutc_input = "cin";
+defparam \data_count[1]~I .lut_mask = "C303";
+defparam \data_count[1]~I .output_mode = "reg_only";
+
+maxii_lcell \data_count[2]~I (
+	.clk(uc_clk),
+	.datab(\data_count[2] ),
+	.datac(uc_length[2]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(\__ALT_INV__block_transfer_state.TRANSFER_BYTE ),
+	.ena(\data_count[0]~16 ),
+	.cin(\data_count[1]~3 ),
+	.regout(\data_count[2] ),
+	.cout(\data_count[2]~5 ));
+defparam \data_count[2]~I .operation_mode = "arithmetic";
+defparam \data_count[2]~I .synch_mode = "on";
+defparam \data_count[2]~I .register_cascade_mode = "off";
+defparam \data_count[2]~I .sum_lutc_input = "cin";
+defparam \data_count[2]~I .lut_mask = "3CCF";
+defparam \data_count[2]~I .output_mode = "reg_only";
+
+maxii_lcell \data_count[3]~I (
+	.clk(uc_clk),
+	.dataa(\data_count[3] ),
+	.datac(uc_length[3]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(\__ALT_INV__block_transfer_state.TRANSFER_BYTE ),
+	.ena(\data_count[0]~16 ),
+	.cin(\data_count[2]~5 ),
+	.regout(\data_count[3] ),
+	.cout(\data_count[3]~7 ));
+defparam \data_count[3]~I .operation_mode = "arithmetic";
+defparam \data_count[3]~I .synch_mode = "on";
+defparam \data_count[3]~I .register_cascade_mode = "off";
+defparam \data_count[3]~I .sum_lutc_input = "cin";
+defparam \data_count[3]~I .lut_mask = "A505";
+defparam \data_count[3]~I .output_mode = "reg_only";
+
+maxii_lcell \data_count[4]~I (
+	.clk(uc_clk),
+	.dataa(\data_count[4] ),
+	.datac(uc_length[4]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(\__ALT_INV__block_transfer_state.TRANSFER_BYTE ),
+	.ena(\data_count[0]~16 ),
+	.cin(\data_count[3]~7 ),
+	.regout(\data_count[4] ),
+	.cout(\data_count[4]~9 ));
+defparam \data_count[4]~I .operation_mode = "arithmetic";
+defparam \data_count[4]~I .synch_mode = "on";
+defparam \data_count[4]~I .register_cascade_mode = "off";
+defparam \data_count[4]~I .sum_lutc_input = "cin";
+defparam \data_count[4]~I .lut_mask = "5AAF";
+defparam \data_count[4]~I .output_mode = "reg_only";
+
+maxii_lcell \data_count[5]~I (
+	.clk(uc_clk),
+	.dataa(\data_count[5] ),
+	.datac(uc_length[5]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(\__ALT_INV__block_transfer_state.TRANSFER_BYTE ),
+	.ena(\data_count[0]~16 ),
+	.cin(\data_count[4]~9 ),
+	.regout(\data_count[5] ),
+	.cout(\data_count[5]~11 ));
+defparam \data_count[5]~I .operation_mode = "arithmetic";
+defparam \data_count[5]~I .synch_mode = "on";
+defparam \data_count[5]~I .register_cascade_mode = "off";
+defparam \data_count[5]~I .sum_lutc_input = "cin";
+defparam \data_count[5]~I .lut_mask = "A505";
+defparam \data_count[5]~I .output_mode = "reg_only";
+
+maxii_lcell \data_count[6]~I (
+	.clk(uc_clk),
+	.dataa(\data_count[6] ),
+	.datac(uc_length[6]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(\__ALT_INV__block_transfer_state.TRANSFER_BYTE ),
+	.ena(\data_count[0]~16 ),
+	.cin(\data_count[5]~11 ),
+	.regout(\data_count[6] ),
+	.cout(\data_count[6]~13 ));
+defparam \data_count[6]~I .operation_mode = "arithmetic";
+defparam \data_count[6]~I .synch_mode = "on";
+defparam \data_count[6]~I .register_cascade_mode = "off";
+defparam \data_count[6]~I .sum_lutc_input = "cin";
+defparam \data_count[6]~I .lut_mask = "5AAF";
+defparam \data_count[6]~I .output_mode = "reg_only";
+
+maxii_lcell \data_count[7]~I (
+	.clk(uc_clk),
+	.datab(\data_count[7] ),
+	.datac(uc_length[7]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(\__ALT_INV__block_transfer_state.TRANSFER_BYTE ),
+	.ena(\data_count[0]~16 ),
+	.cin(\data_count[6]~13 ),
+	.regout(\data_count[7] ));
+defparam \data_count[7]~I .operation_mode = "normal";
+defparam \data_count[7]~I .synch_mode = "on";
+defparam \data_count[7]~I .register_cascade_mode = "off";
+defparam \data_count[7]~I .sum_lutc_input = "cin";
+defparam \data_count[7]~I .lut_mask = "C3C3";
+defparam \data_count[7]~I .output_mode = "reg_only";
+
+maxii_lcell \LessThan1~1_I (
+	.dataa(\data_count[4] ),
+	.datab(\data_count[5] ),
+	.datac(\data_count[6] ),
+	.datad(\data_count[7] ),
+	.combout(\LessThan1~1 ));
+defparam \LessThan1~1_I .operation_mode = "normal";
+defparam \LessThan1~1_I .synch_mode = "off";
+defparam \LessThan1~1_I .register_cascade_mode = "off";
+defparam \LessThan1~1_I .sum_lutc_input = "datac";
+defparam \LessThan1~1_I .lut_mask = "FFFE";
+defparam \LessThan1~1_I .output_mode = "comb_only";
+
+maxii_lcell \LessThan1~0_I (
+	.datac(\data_count[1] ),
+	.datad(\data_count[0] ),
+	.combout(\LessThan1~0 ));
+defparam \LessThan1~0_I .operation_mode = "normal";
+defparam \LessThan1~0_I .synch_mode = "off";
+defparam \LessThan1~0_I .register_cascade_mode = "off";
+defparam \LessThan1~0_I .sum_lutc_input = "datac";
+defparam \LessThan1~0_I .lut_mask = "FFF0";
+defparam \LessThan1~0_I .output_mode = "comb_only";
+
+maxii_lcell \LessThan1~2_I (
+	.dataa(\data_count[3] ),
+	.datab(\LessThan1~1 ),
+	.datac(\data_count[2] ),
+	.datad(\LessThan1~0 ),
+	.combout(\LessThan1~2 ));
+defparam \LessThan1~2_I .operation_mode = "normal";
+defparam \LessThan1~2_I .synch_mode = "off";
+defparam \LessThan1~2_I .register_cascade_mode = "off";
+defparam \LessThan1~2_I .sum_lutc_input = "datac";
+defparam \LessThan1~2_I .lut_mask = "FFFE";
+defparam \LessThan1~2_I .output_mode = "comb_only";
+
+maxii_lcell \block_transfer_state.TRANSFER_BYTE~I (
+	.clk(uc_clk),
+	.dataa(\block_transfer_state.TRANSFER_BYTE ),
+	.datab(\block_transfer_state_counter[0] ),
+	.datac(\LessThan1~2 ),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\block_transfer_state.TRANSFER_BYTE ));
+defparam \block_transfer_state.TRANSFER_BYTE~I .operation_mode = "normal";
+defparam \block_transfer_state.TRANSFER_BYTE~I .synch_mode = "off";
+defparam \block_transfer_state.TRANSFER_BYTE~I .register_cascade_mode = "off";
+defparam \block_transfer_state.TRANSFER_BYTE~I .sum_lutc_input = "datac";
+defparam \block_transfer_state.TRANSFER_BYTE~I .lut_mask = "ECA0";
+defparam \block_transfer_state.TRANSFER_BYTE~I .output_mode = "reg_only";
+
+maxii_lcell \block_transfer_state.END_TRANSFER~I (
+	.clk(uc_clk),
+	.datac(\LessThan1~2 ),
+	.datad(\block_transfer_state.TRANSFER_BYTE ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\block_transfer_state.END_TRANSFER ));
+defparam \block_transfer_state.END_TRANSFER~I .operation_mode = "normal";
+defparam \block_transfer_state.END_TRANSFER~I .synch_mode = "off";
+defparam \block_transfer_state.END_TRANSFER~I .register_cascade_mode = "off";
+defparam \block_transfer_state.END_TRANSFER~I .sum_lutc_input = "datac";
+defparam \block_transfer_state.END_TRANSFER~I .lut_mask = "0F00";
+defparam \block_transfer_state.END_TRANSFER~I .output_mode = "reg_only";
+
+maxii_lcell \block_transfer_state_counter[0]~I (
+	.clk(uc_clk),
+	.dataa(\block_transfer_state.TRANSFER_BYTE ),
+	.datab(\block_transfer_state_counter[0] ),
+	.datac(\block_transfer_state.END_TRANSFER ),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\block_transfer_state_counter[0] ));
+defparam \block_transfer_state_counter[0]~I .operation_mode = "normal";
+defparam \block_transfer_state_counter[0]~I .synch_mode = "off";
+defparam \block_transfer_state_counter[0]~I .register_cascade_mode = "off";
+defparam \block_transfer_state_counter[0]~I .sum_lutc_input = "datac";
+defparam \block_transfer_state_counter[0]~I .lut_mask = "FFC8";
+defparam \block_transfer_state_counter[0]~I .output_mode = "reg_only";
+
+maxii_lcell \block_transfer_state.IDLE~I (
+	.clk(uc_clk),
+	.dataa(start_transfer),
+	.datab(\block_transfer_state.IDLE ),
+	.datac(\block_transfer_state.END_TRANSFER ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\block_transfer_state.IDLE ));
+defparam \block_transfer_state.IDLE~I .operation_mode = "normal";
+defparam \block_transfer_state.IDLE~I .synch_mode = "off";
+defparam \block_transfer_state.IDLE~I .register_cascade_mode = "off";
+defparam \block_transfer_state.IDLE~I .sum_lutc_input = "datac";
+defparam \block_transfer_state.IDLE~I .lut_mask = "0E0E";
+defparam \block_transfer_state.IDLE~I .output_mode = "reg_only";
+
+maxii_lcell \block_transfer_state.SEND_COMMAND~I (
+	.clk(uc_clk),
+	.dataa(start_transfer),
+	.datab(\block_transfer_state_counter[0] ),
+	.datac(\block_transfer_state.IDLE ),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\block_transfer_state.SEND_COMMAND ));
+defparam \block_transfer_state.SEND_COMMAND~I .operation_mode = "normal";
+defparam \block_transfer_state.SEND_COMMAND~I .synch_mode = "off";
+defparam \block_transfer_state.SEND_COMMAND~I .register_cascade_mode = "off";
+defparam \block_transfer_state.SEND_COMMAND~I .sum_lutc_input = "datac";
+defparam \block_transfer_state.SEND_COMMAND~I .lut_mask = "3B0A";
+defparam \block_transfer_state.SEND_COMMAND~I .output_mode = "reg_only";
+
+maxii_lcell \Selector8~0_I (
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datad(uc_in[22]),
+	.combout(\Selector8~0 ));
+defparam \Selector8~0_I .operation_mode = "normal";
+defparam \Selector8~0_I .synch_mode = "off";
+defparam \Selector8~0_I .register_cascade_mode = "off";
+defparam \Selector8~0_I .sum_lutc_input = "datac";
+defparam \Selector8~0_I .lut_mask = "CC00";
+defparam \Selector8~0_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out[0]~reg0_I (
+	.clk(uc_clk),
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(\uc_out[0]~reg0 ),
+	.datac(transfer_to_host[0]),
+	.datad(\Selector8~0 ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\uc_out[0]~reg0 ));
+defparam \uc_out[0]~reg0_I .operation_mode = "normal";
+defparam \uc_out[0]~reg0_I .synch_mode = "off";
+defparam \uc_out[0]~reg0_I .register_cascade_mode = "off";
+defparam \uc_out[0]~reg0_I .sum_lutc_input = "datac";
+defparam \uc_out[0]~reg0_I .lut_mask = "F888";
+defparam \uc_out[0]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \uc_out[1]~reg0_I (
+	.clk(uc_clk),
+	.dataa(\uc_out[1]~reg0 ),
+	.datab(\Selector8~0 ),
+	.datac(transfer_to_host[1]),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\uc_out[1]~reg0 ));
+defparam \uc_out[1]~reg0_I .operation_mode = "normal";
+defparam \uc_out[1]~reg0_I .synch_mode = "off";
+defparam \uc_out[1]~reg0_I .register_cascade_mode = "off";
+defparam \uc_out[1]~reg0_I .sum_lutc_input = "datac";
+defparam \uc_out[1]~reg0_I .lut_mask = "EAC0";
+defparam \uc_out[1]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \uc_out[2]~reg0_I (
+	.clk(uc_clk),
+	.dataa(\uc_out[2]~reg0 ),
+	.datab(\Selector8~0 ),
+	.datac(transfer_to_host[2]),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\uc_out[2]~reg0 ));
+defparam \uc_out[2]~reg0_I .operation_mode = "normal";
+defparam \uc_out[2]~reg0_I .synch_mode = "off";
+defparam \uc_out[2]~reg0_I .register_cascade_mode = "off";
+defparam \uc_out[2]~reg0_I .sum_lutc_input = "datac";
+defparam \uc_out[2]~reg0_I .lut_mask = "EAC0";
+defparam \uc_out[2]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \uc_out[3]~reg0_I (
+	.clk(uc_clk),
+	.dataa(transfer_to_host[3]),
+	.datab(\Selector8~0 ),
+	.datac(\uc_out[3]~reg0 ),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\uc_out[3]~reg0 ));
+defparam \uc_out[3]~reg0_I .operation_mode = "normal";
+defparam \uc_out[3]~reg0_I .synch_mode = "off";
+defparam \uc_out[3]~reg0_I .register_cascade_mode = "off";
+defparam \uc_out[3]~reg0_I .sum_lutc_input = "datac";
+defparam \uc_out[3]~reg0_I .lut_mask = "F888";
+defparam \uc_out[3]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \uc_out[4]~reg0_I (
+	.clk(uc_clk),
+	.dataa(transfer_to_host[4]),
+	.datab(\Selector8~0 ),
+	.datac(\uc_out[4]~reg0 ),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\uc_out[4]~reg0 ));
+defparam \uc_out[4]~reg0_I .operation_mode = "normal";
+defparam \uc_out[4]~reg0_I .synch_mode = "off";
+defparam \uc_out[4]~reg0_I .register_cascade_mode = "off";
+defparam \uc_out[4]~reg0_I .sum_lutc_input = "datac";
+defparam \uc_out[4]~reg0_I .lut_mask = "F888";
+defparam \uc_out[4]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \uc_out[5]~reg0_I (
+	.clk(uc_clk),
+	.dataa(\uc_out[5]~reg0 ),
+	.datab(\Selector8~0 ),
+	.datac(transfer_to_host[5]),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\uc_out[5]~reg0 ));
+defparam \uc_out[5]~reg0_I .operation_mode = "normal";
+defparam \uc_out[5]~reg0_I .synch_mode = "off";
+defparam \uc_out[5]~reg0_I .register_cascade_mode = "off";
+defparam \uc_out[5]~reg0_I .sum_lutc_input = "datac";
+defparam \uc_out[5]~reg0_I .lut_mask = "EAC0";
+defparam \uc_out[5]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \uc_out[6]~reg0_I (
+	.clk(uc_clk),
+	.dataa(transfer_to_host[6]),
+	.datab(\Selector8~0 ),
+	.datac(\uc_out[6]~reg0 ),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\uc_out[6]~reg0 ));
+defparam \uc_out[6]~reg0_I .operation_mode = "normal";
+defparam \uc_out[6]~reg0_I .synch_mode = "off";
+defparam \uc_out[6]~reg0_I .register_cascade_mode = "off";
+defparam \uc_out[6]~reg0_I .sum_lutc_input = "datac";
+defparam \uc_out[6]~reg0_I .lut_mask = "F888";
+defparam \uc_out[6]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \uc_out[7]~reg0_I (
+	.clk(uc_clk),
+	.dataa(transfer_to_host[7]),
+	.datab(\Selector8~0 ),
+	.datac(\uc_out[7]~reg0 ),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\uc_out[7]~reg0 ));
+defparam \uc_out[7]~reg0_I .operation_mode = "normal";
+defparam \uc_out[7]~reg0_I .synch_mode = "off";
+defparam \uc_out[7]~reg0_I .register_cascade_mode = "off";
+defparam \uc_out[7]~reg0_I .sum_lutc_input = "datac";
+defparam \uc_out[7]~reg0_I .lut_mask = "F888";
+defparam \uc_out[7]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \uc_out~2_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_reset),
+	.datad(uc_addr[0]),
+	.combout(\uc_out~2 ));
+defparam \uc_out~2_I .operation_mode = "normal";
+defparam \uc_out~2_I .synch_mode = "off";
+defparam \uc_out~2_I .register_cascade_mode = "off";
+defparam \uc_out~2_I .sum_lutc_input = "datac";
+defparam \uc_out~2_I .lut_mask = "6000";
+defparam \uc_out~2_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~3_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_reset),
+	.datad(uc_addr[1]),
+	.combout(\uc_out~3 ));
+defparam \uc_out~3_I .operation_mode = "normal";
+defparam \uc_out~3_I .synch_mode = "off";
+defparam \uc_out~3_I .register_cascade_mode = "off";
+defparam \uc_out~3_I .sum_lutc_input = "datac";
+defparam \uc_out~3_I .lut_mask = "6000";
+defparam \uc_out~3_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~4_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(uc_reset),
+	.datac(\block_transfer_state.TRANSFER_BYTE ),
+	.datad(uc_addr[2]),
+	.combout(\uc_out~4 ));
+defparam \uc_out~4_I .operation_mode = "normal";
+defparam \uc_out~4_I .synch_mode = "off";
+defparam \uc_out~4_I .register_cascade_mode = "off";
+defparam \uc_out~4_I .sum_lutc_input = "datac";
+defparam \uc_out~4_I .lut_mask = "4800";
+defparam \uc_out~4_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~5_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_reset),
+	.datad(uc_length[0]),
+	.combout(\uc_out~5 ));
+defparam \uc_out~5_I .operation_mode = "normal";
+defparam \uc_out~5_I .synch_mode = "off";
+defparam \uc_out~5_I .register_cascade_mode = "off";
+defparam \uc_out~5_I .sum_lutc_input = "datac";
+defparam \uc_out~5_I .lut_mask = "6000";
+defparam \uc_out~5_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~6_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(uc_length[1]),
+	.datac(uc_reset),
+	.datad(\block_transfer_state.TRANSFER_BYTE ),
+	.combout(\uc_out~6 ));
+defparam \uc_out~6_I .operation_mode = "normal";
+defparam \uc_out~6_I .synch_mode = "off";
+defparam \uc_out~6_I .register_cascade_mode = "off";
+defparam \uc_out~6_I .sum_lutc_input = "datac";
+defparam \uc_out~6_I .lut_mask = "4080";
+defparam \uc_out~6_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~7_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_reset),
+	.datad(uc_length[2]),
+	.combout(\uc_out~7 ));
+defparam \uc_out~7_I .operation_mode = "normal";
+defparam \uc_out~7_I .synch_mode = "off";
+defparam \uc_out~7_I .register_cascade_mode = "off";
+defparam \uc_out~7_I .sum_lutc_input = "datac";
+defparam \uc_out~7_I .lut_mask = "6000";
+defparam \uc_out~7_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~8_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_reset),
+	.datad(uc_length[3]),
+	.combout(\uc_out~8 ));
+defparam \uc_out~8_I .operation_mode = "normal";
+defparam \uc_out~8_I .synch_mode = "off";
+defparam \uc_out~8_I .register_cascade_mode = "off";
+defparam \uc_out~8_I .sum_lutc_input = "datac";
+defparam \uc_out~8_I .lut_mask = "6000";
+defparam \uc_out~8_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~9_I (
+	.dataa(uc_reset),
+	.datab(uc_length[4]),
+	.datac(\block_transfer_state.TRANSFER_BYTE ),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.combout(\uc_out~9 ));
+defparam \uc_out~9_I .operation_mode = "normal";
+defparam \uc_out~9_I .synch_mode = "off";
+defparam \uc_out~9_I .register_cascade_mode = "off";
+defparam \uc_out~9_I .sum_lutc_input = "datac";
+defparam \uc_out~9_I .lut_mask = "0880";
+defparam \uc_out~9_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~10_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_reset),
+	.datad(uc_length[5]),
+	.combout(\uc_out~10 ));
+defparam \uc_out~10_I .operation_mode = "normal";
+defparam \uc_out~10_I .synch_mode = "off";
+defparam \uc_out~10_I .register_cascade_mode = "off";
+defparam \uc_out~10_I .sum_lutc_input = "datac";
+defparam \uc_out~10_I .lut_mask = "6000";
+defparam \uc_out~10_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~11_I (
+	.dataa(uc_length[6]),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_reset),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.combout(\uc_out~11 ));
+defparam \uc_out~11_I .operation_mode = "normal";
+defparam \uc_out~11_I .synch_mode = "off";
+defparam \uc_out~11_I .register_cascade_mode = "off";
+defparam \uc_out~11_I .sum_lutc_input = "datac";
+defparam \uc_out~11_I .lut_mask = "2080";
+defparam \uc_out~11_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~12_I (
+	.dataa(uc_reset),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_length[7]),
+	.datad(\block_transfer_state.SEND_COMMAND ),
+	.combout(\uc_out~12 ));
+defparam \uc_out~12_I .operation_mode = "normal";
+defparam \uc_out~12_I .synch_mode = "off";
+defparam \uc_out~12_I .register_cascade_mode = "off";
+defparam \uc_out~12_I .sum_lutc_input = "datac";
+defparam \uc_out~12_I .lut_mask = "2080";
+defparam \uc_out~12_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~13_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_reset),
+	.combout(\uc_out~13 ));
+defparam \uc_out~13_I .operation_mode = "normal";
+defparam \uc_out~13_I .synch_mode = "off";
+defparam \uc_out~13_I .register_cascade_mode = "off";
+defparam \uc_out~13_I .sum_lutc_input = "datac";
+defparam \uc_out~13_I .lut_mask = "4040";
+defparam \uc_out~13_I .output_mode = "comb_only";
+
+maxii_lcell \uc_out~14_I (
+	.dataa(\block_transfer_state.SEND_COMMAND ),
+	.datab(\block_transfer_state.TRANSFER_BYTE ),
+	.datac(uc_reset),
+	.combout(\uc_out~14 ));
+defparam \uc_out~14_I .operation_mode = "normal";
+defparam \uc_out~14_I .synch_mode = "off";
+defparam \uc_out~14_I .register_cascade_mode = "off";
+defparam \uc_out~14_I .sum_lutc_input = "datac";
+defparam \uc_out~14_I .lut_mask = "E0E0";
+defparam \uc_out~14_I .output_mode = "comb_only";
+
+maxii_lcell \next_in~1_I (
+	.dataa(uc_in[8]),
+	.datab(uc_addr[1]),
+	.datac(uc_in[9]),
+	.datad(uc_addr[0]),
+	.combout(\next_in~1 ));
+defparam \next_in~1_I .operation_mode = "normal";
+defparam \next_in~1_I .synch_mode = "off";
+defparam \next_in~1_I .register_cascade_mode = "off";
+defparam \next_in~1_I .sum_lutc_input = "datac";
+defparam \next_in~1_I .lut_mask = "8241";
+defparam \next_in~1_I .output_mode = "comb_only";
+
+maxii_lcell \next_in~2_I (
+	.dataa(\next_in~1 ),
+	.datac(uc_in[10]),
+	.datad(uc_addr[2]),
+	.combout(\next_in~2 ));
+defparam \next_in~2_I .operation_mode = "normal";
+defparam \next_in~2_I .synch_mode = "off";
+defparam \next_in~2_I .register_cascade_mode = "off";
+defparam \next_in~2_I .sum_lutc_input = "datac";
+defparam \next_in~2_I .lut_mask = "A00A";
+defparam \next_in~2_I .output_mode = "comb_only";
+
+maxii_lcell \next_in[2]~5_I (
+	.dataa(uc_in[21]),
+	.datab(uc_in[19]),
+	.datac(uc_in[20]),
+	.combout(\next_in[2]~5 ));
+defparam \next_in[2]~5_I .operation_mode = "normal";
+defparam \next_in[2]~5_I .synch_mode = "off";
+defparam \next_in[2]~5_I .register_cascade_mode = "off";
+defparam \next_in[2]~5_I .sum_lutc_input = "datac";
+defparam \next_in[2]~5_I .lut_mask = "0202";
+defparam \next_in[2]~5_I .output_mode = "comb_only";
+
+maxii_lcell \ept_length[7]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[18]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(vcc),
+	.ena(\state_in[2] ),
+	.regout(\ept_length[7]~reg0 ));
+defparam \ept_length[7]~reg0_I .operation_mode = "normal";
+defparam \ept_length[7]~reg0_I .synch_mode = "on";
+defparam \ept_length[7]~reg0_I .register_cascade_mode = "off";
+defparam \ept_length[7]~reg0_I .sum_lutc_input = "datac";
+defparam \ept_length[7]~reg0_I .lut_mask = "0000";
+defparam \ept_length[7]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \always2~0_I (
+	.datab(uc_in[22]),
+	.datac(\state_in[4] ),
+	.combout(\always2~0 ));
+defparam \always2~0_I .operation_mode = "normal";
+defparam \always2~0_I .synch_mode = "off";
+defparam \always2~0_I .register_cascade_mode = "off";
+defparam \always2~0_I .sum_lutc_input = "datac";
+defparam \always2~0_I .lut_mask = "3F3F";
+defparam \always2~0_I .output_mode = "comb_only";
+
+maxii_lcell \transfer_received_count[2]~16_I (
+	.datab(uc_in[22]),
+	.datac(\state_in[5] ),
+	.datad(\state_in[4] ),
+	.combout(\transfer_received_count[2]~16 ));
+defparam \transfer_received_count[2]~16_I .operation_mode = "normal";
+defparam \transfer_received_count[2]~16_I .synch_mode = "off";
+defparam \transfer_received_count[2]~16_I .register_cascade_mode = "off";
+defparam \transfer_received_count[2]~16_I .sum_lutc_input = "datac";
+defparam \transfer_received_count[2]~16_I .lut_mask = "FCF0";
+defparam \transfer_received_count[2]~16_I .output_mode = "comb_only";
+
+maxii_lcell \transfer_received_count[0]~I (
+	.clk(uc_clk),
+	.datab(\transfer_received_count[0] ),
+	.aclr(__ALT_INV__uc_reset),
+	.sclr(\always2~0 ),
+	.ena(\transfer_received_count[2]~16 ),
+	.regout(\transfer_received_count[0] ),
+	.cout(\transfer_received_count[0]~1 ));
+defparam \transfer_received_count[0]~I .operation_mode = "arithmetic";
+defparam \transfer_received_count[0]~I .synch_mode = "on";
+defparam \transfer_received_count[0]~I .register_cascade_mode = "off";
+defparam \transfer_received_count[0]~I .sum_lutc_input = "datac";
+defparam \transfer_received_count[0]~I .lut_mask = "33CC";
+defparam \transfer_received_count[0]~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_received_count[1]~I (
+	.clk(uc_clk),
+	.datab(\transfer_received_count[1] ),
+	.aclr(__ALT_INV__uc_reset),
+	.sclr(\always2~0 ),
+	.ena(\transfer_received_count[2]~16 ),
+	.cin(\transfer_received_count[0]~1 ),
+	.regout(\transfer_received_count[1] ),
+	.cout(\transfer_received_count[1]~3 ));
+defparam \transfer_received_count[1]~I .operation_mode = "arithmetic";
+defparam \transfer_received_count[1]~I .synch_mode = "on";
+defparam \transfer_received_count[1]~I .register_cascade_mode = "off";
+defparam \transfer_received_count[1]~I .sum_lutc_input = "cin";
+defparam \transfer_received_count[1]~I .lut_mask = "3C3F";
+defparam \transfer_received_count[1]~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_received_count[2]~I (
+	.clk(uc_clk),
+	.datab(\transfer_received_count[2] ),
+	.aclr(__ALT_INV__uc_reset),
+	.sclr(\always2~0 ),
+	.ena(\transfer_received_count[2]~16 ),
+	.cin(\transfer_received_count[1]~3 ),
+	.regout(\transfer_received_count[2] ),
+	.cout(\transfer_received_count[2]~13 ));
+defparam \transfer_received_count[2]~I .operation_mode = "arithmetic";
+defparam \transfer_received_count[2]~I .synch_mode = "on";
+defparam \transfer_received_count[2]~I .register_cascade_mode = "off";
+defparam \transfer_received_count[2]~I .sum_lutc_input = "cin";
+defparam \transfer_received_count[2]~I .lut_mask = "C30C";
+defparam \transfer_received_count[2]~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_received_count[3]~I (
+	.clk(uc_clk),
+	.dataa(\transfer_received_count[3] ),
+	.aclr(__ALT_INV__uc_reset),
+	.sclr(\always2~0 ),
+	.ena(\transfer_received_count[2]~16 ),
+	.cin(\transfer_received_count[2]~13 ),
+	.regout(\transfer_received_count[3] ),
+	.cout(\transfer_received_count[3]~15 ));
+defparam \transfer_received_count[3]~I .operation_mode = "arithmetic";
+defparam \transfer_received_count[3]~I .synch_mode = "on";
+defparam \transfer_received_count[3]~I .register_cascade_mode = "off";
+defparam \transfer_received_count[3]~I .sum_lutc_input = "cin";
+defparam \transfer_received_count[3]~I .lut_mask = "5A5F";
+defparam \transfer_received_count[3]~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_received_count[4]~I (
+	.clk(uc_clk),
+	.dataa(\transfer_received_count[4] ),
+	.aclr(__ALT_INV__uc_reset),
+	.sclr(\always2~0 ),
+	.ena(\transfer_received_count[2]~16 ),
+	.cin(\transfer_received_count[3]~15 ),
+	.regout(\transfer_received_count[4] ),
+	.cout(\transfer_received_count[4]~5 ));
+defparam \transfer_received_count[4]~I .operation_mode = "arithmetic";
+defparam \transfer_received_count[4]~I .synch_mode = "on";
+defparam \transfer_received_count[4]~I .register_cascade_mode = "off";
+defparam \transfer_received_count[4]~I .sum_lutc_input = "cin";
+defparam \transfer_received_count[4]~I .lut_mask = "A50A";
+defparam \transfer_received_count[4]~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_received_count[5]~I (
+	.clk(uc_clk),
+	.dataa(\transfer_received_count[5] ),
+	.aclr(__ALT_INV__uc_reset),
+	.sclr(\always2~0 ),
+	.ena(\transfer_received_count[2]~16 ),
+	.cin(\transfer_received_count[4]~5 ),
+	.regout(\transfer_received_count[5] ),
+	.cout(\transfer_received_count[5]~7 ));
+defparam \transfer_received_count[5]~I .operation_mode = "arithmetic";
+defparam \transfer_received_count[5]~I .synch_mode = "on";
+defparam \transfer_received_count[5]~I .register_cascade_mode = "off";
+defparam \transfer_received_count[5]~I .sum_lutc_input = "cin";
+defparam \transfer_received_count[5]~I .lut_mask = "5A5F";
+defparam \transfer_received_count[5]~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_received_count[6]~I (
+	.clk(uc_clk),
+	.dataa(\transfer_received_count[6] ),
+	.aclr(__ALT_INV__uc_reset),
+	.sclr(\always2~0 ),
+	.ena(\transfer_received_count[2]~16 ),
+	.cin(\transfer_received_count[5]~7 ),
+	.regout(\transfer_received_count[6] ),
+	.cout(\transfer_received_count[6]~9 ));
+defparam \transfer_received_count[6]~I .operation_mode = "arithmetic";
+defparam \transfer_received_count[6]~I .synch_mode = "on";
+defparam \transfer_received_count[6]~I .register_cascade_mode = "off";
+defparam \transfer_received_count[6]~I .sum_lutc_input = "cin";
+defparam \transfer_received_count[6]~I .lut_mask = "A50A";
+defparam \transfer_received_count[6]~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_received_count[7]~I (
+	.clk(uc_clk),
+	.datab(\transfer_received_count[7] ),
+	.aclr(__ALT_INV__uc_reset),
+	.sclr(\always2~0 ),
+	.ena(\transfer_received_count[2]~16 ),
+	.cin(\transfer_received_count[6]~9 ),
+	.regout(\transfer_received_count[7] ));
+defparam \transfer_received_count[7]~I .operation_mode = "normal";
+defparam \transfer_received_count[7]~I .synch_mode = "on";
+defparam \transfer_received_count[7]~I .register_cascade_mode = "off";
+defparam \transfer_received_count[7]~I .sum_lutc_input = "cin";
+defparam \transfer_received_count[7]~I .lut_mask = "3C3C";
+defparam \transfer_received_count[7]~I .output_mode = "reg_only";
+
+maxii_lcell \ept_length[4]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[15]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(vcc),
+	.ena(\state_in[2] ),
+	.regout(\ept_length[4]~reg0 ));
+defparam \ept_length[4]~reg0_I .operation_mode = "normal";
+defparam \ept_length[4]~reg0_I .synch_mode = "on";
+defparam \ept_length[4]~reg0_I .register_cascade_mode = "off";
+defparam \ept_length[4]~reg0_I .sum_lutc_input = "datac";
+defparam \ept_length[4]~reg0_I .lut_mask = "0000";
+defparam \ept_length[4]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \ept_length[3]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[14]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(vcc),
+	.ena(\state_in[2] ),
+	.regout(\ept_length[3]~reg0 ));
+defparam \ept_length[3]~reg0_I .operation_mode = "normal";
+defparam \ept_length[3]~reg0_I .synch_mode = "on";
+defparam \ept_length[3]~reg0_I .register_cascade_mode = "off";
+defparam \ept_length[3]~reg0_I .sum_lutc_input = "datac";
+defparam \ept_length[3]~reg0_I .lut_mask = "0000";
+defparam \ept_length[3]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \ept_length[2]~reg0_I (
+	.clk(uc_clk),
+	.datad(uc_in[13]),
+	.aclr(__ALT_INV__uc_reset),
+	.ena(\state_in[2] ),
+	.regout(\ept_length[2]~reg0 ));
+defparam \ept_length[2]~reg0_I .operation_mode = "normal";
+defparam \ept_length[2]~reg0_I .synch_mode = "off";
+defparam \ept_length[2]~reg0_I .register_cascade_mode = "off";
+defparam \ept_length[2]~reg0_I .sum_lutc_input = "datac";
+defparam \ept_length[2]~reg0_I .lut_mask = "FF00";
+defparam \ept_length[2]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \ept_length[1]~reg0_I (
+	.clk(uc_clk),
+	.datad(uc_in[12]),
+	.aclr(__ALT_INV__uc_reset),
+	.ena(\state_in[2] ),
+	.regout(\ept_length[1]~reg0 ));
+defparam \ept_length[1]~reg0_I .operation_mode = "normal";
+defparam \ept_length[1]~reg0_I .synch_mode = "off";
+defparam \ept_length[1]~reg0_I .register_cascade_mode = "off";
+defparam \ept_length[1]~reg0_I .sum_lutc_input = "datac";
+defparam \ept_length[1]~reg0_I .lut_mask = "FF00";
+defparam \ept_length[1]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \ept_length[0]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[11]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(vcc),
+	.ena(\state_in[2] ),
+	.regout(\ept_length[0]~reg0 ));
+defparam \ept_length[0]~reg0_I .operation_mode = "normal";
+defparam \ept_length[0]~reg0_I .synch_mode = "on";
+defparam \ept_length[0]~reg0_I .register_cascade_mode = "off";
+defparam \ept_length[0]~reg0_I .sum_lutc_input = "datac";
+defparam \ept_length[0]~reg0_I .lut_mask = "0000";
+defparam \ept_length[0]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \LessThan0~37_I (
+	.dataa(\transfer_received_count[0] ),
+	.datab(\ept_length[0]~reg0 ),
+	.combout(\LessThan0~35 ),
+	.cout(\LessThan0~37 ));
+defparam \LessThan0~37_I .operation_mode = "arithmetic";
+defparam \LessThan0~37_I .synch_mode = "off";
+defparam \LessThan0~37_I .register_cascade_mode = "off";
+defparam \LessThan0~37_I .sum_lutc_input = "datac";
+defparam \LessThan0~37_I .lut_mask = "FF44";
+defparam \LessThan0~37_I .output_mode = "none";
+
+maxii_lcell \LessThan0~32_I (
+	.dataa(\transfer_received_count[1] ),
+	.datab(\ept_length[1]~reg0 ),
+	.cin(\LessThan0~37 ),
+	.combout(\LessThan0~30 ),
+	.cout(\LessThan0~32 ));
+defparam \LessThan0~32_I .operation_mode = "arithmetic";
+defparam \LessThan0~32_I .synch_mode = "off";
+defparam \LessThan0~32_I .register_cascade_mode = "off";
+defparam \LessThan0~32_I .sum_lutc_input = "cin";
+defparam \LessThan0~32_I .lut_mask = "FF2B";
+defparam \LessThan0~32_I .output_mode = "none";
+
+maxii_lcell \LessThan0~27_I (
+	.dataa(\ept_length[2]~reg0 ),
+	.datab(\transfer_received_count[2] ),
+	.cin(\LessThan0~32 ),
+	.combout(\LessThan0~25 ),
+	.cout(\LessThan0~27 ));
+defparam \LessThan0~27_I .operation_mode = "arithmetic";
+defparam \LessThan0~27_I .synch_mode = "off";
+defparam \LessThan0~27_I .register_cascade_mode = "off";
+defparam \LessThan0~27_I .sum_lutc_input = "cin";
+defparam \LessThan0~27_I .lut_mask = "FF2B";
+defparam \LessThan0~27_I .output_mode = "none";
+
+maxii_lcell \LessThan0~22_I (
+	.dataa(\transfer_received_count[3] ),
+	.datab(\ept_length[3]~reg0 ),
+	.cin(\LessThan0~27 ),
+	.combout(\LessThan0~20 ),
+	.cout(\LessThan0~22 ));
+defparam \LessThan0~22_I .operation_mode = "arithmetic";
+defparam \LessThan0~22_I .synch_mode = "off";
+defparam \LessThan0~22_I .register_cascade_mode = "off";
+defparam \LessThan0~22_I .sum_lutc_input = "cin";
+defparam \LessThan0~22_I .lut_mask = "FF2B";
+defparam \LessThan0~22_I .output_mode = "none";
+
+maxii_lcell \LessThan0~17_I (
+	.dataa(\ept_length[4]~reg0 ),
+	.datab(\transfer_received_count[4] ),
+	.cin(\LessThan0~22 ),
+	.combout(\LessThan0~15 ),
+	.cout(\LessThan0~17 ));
+defparam \LessThan0~17_I .operation_mode = "arithmetic";
+defparam \LessThan0~17_I .synch_mode = "off";
+defparam \LessThan0~17_I .register_cascade_mode = "off";
+defparam \LessThan0~17_I .sum_lutc_input = "cin";
+defparam \LessThan0~17_I .lut_mask = "FF2B";
+defparam \LessThan0~17_I .output_mode = "none";
+
+maxii_lcell \ept_length[6]~reg0_I (
+	.clk(uc_clk),
+	.datad(uc_in[17]),
+	.aclr(__ALT_INV__uc_reset),
+	.ena(\state_in[2] ),
+	.regout(\ept_length[6]~reg0 ));
+defparam \ept_length[6]~reg0_I .operation_mode = "normal";
+defparam \ept_length[6]~reg0_I .synch_mode = "off";
+defparam \ept_length[6]~reg0_I .register_cascade_mode = "off";
+defparam \ept_length[6]~reg0_I .sum_lutc_input = "datac";
+defparam \ept_length[6]~reg0_I .lut_mask = "FF00";
+defparam \ept_length[6]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \ept_length[5]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[16]),
+	.aclr(__ALT_INV__uc_reset),
+	.sload(vcc),
+	.ena(\state_in[2] ),
+	.regout(\ept_length[5]~reg0 ));
+defparam \ept_length[5]~reg0_I .operation_mode = "normal";
+defparam \ept_length[5]~reg0_I .synch_mode = "on";
+defparam \ept_length[5]~reg0_I .register_cascade_mode = "off";
+defparam \ept_length[5]~reg0_I .sum_lutc_input = "datac";
+defparam \ept_length[5]~reg0_I .lut_mask = "0000";
+defparam \ept_length[5]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \LessThan0~12_I (
+	.dataa(\ept_length[5]~reg0 ),
+	.datab(\transfer_received_count[5] ),
+	.cin(\LessThan0~17 ),
+	.combout(\LessThan0~10 ),
+	.cout(\LessThan0~12 ));
+defparam \LessThan0~12_I .operation_mode = "arithmetic";
+defparam \LessThan0~12_I .synch_mode = "off";
+defparam \LessThan0~12_I .register_cascade_mode = "off";
+defparam \LessThan0~12_I .sum_lutc_input = "cin";
+defparam \LessThan0~12_I .lut_mask = "FF4D";
+defparam \LessThan0~12_I .output_mode = "none";
+
+maxii_lcell \LessThan0~7_I (
+	.dataa(\transfer_received_count[6] ),
+	.datab(\ept_length[6]~reg0 ),
+	.cin(\LessThan0~12 ),
+	.combout(\LessThan0~5 ),
+	.cout(\LessThan0~7 ));
+defparam \LessThan0~7_I .operation_mode = "arithmetic";
+defparam \LessThan0~7_I .synch_mode = "off";
+defparam \LessThan0~7_I .register_cascade_mode = "off";
+defparam \LessThan0~7_I .sum_lutc_input = "cin";
+defparam \LessThan0~7_I .lut_mask = "FF4D";
+defparam \LessThan0~7_I .output_mode = "none";
+
+maxii_lcell \LessThan0~0_I (
+	.datab(\ept_length[7]~reg0 ),
+	.datad(\transfer_received_count[7] ),
+	.cin(\LessThan0~7 ),
+	.combout(\LessThan0~0 ));
+defparam \LessThan0~0_I .operation_mode = "normal";
+defparam \LessThan0~0_I .synch_mode = "off";
+defparam \LessThan0~0_I .register_cascade_mode = "off";
+defparam \LessThan0~0_I .sum_lutc_input = "cin";
+defparam \LessThan0~0_I .lut_mask = "C0FC";
+defparam \LessThan0~0_I .output_mode = "comb_only";
+
+maxii_lcell \state_in[4]~I (
+	.clk(uc_clk),
+	.dataa(uc_in[22]),
+	.datab(\state_in[3] ),
+	.datac(\LessThan0~0 ),
+	.datad(\state_in[4] ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\state_in[4] ));
+defparam \state_in[4]~I .operation_mode = "normal";
+defparam \state_in[4]~I .synch_mode = "off";
+defparam \state_in[4]~I .register_cascade_mode = "off";
+defparam \state_in[4]~I .sum_lutc_input = "datac";
+defparam \state_in[4]~I .lut_mask = "D5C0";
+defparam \state_in[4]~I .output_mode = "reg_only";
+
+maxii_lcell \state_in[3]~I (
+	.clk(uc_clk),
+	.datab(uc_in[22]),
+	.datac(\state_in[2] ),
+	.datad(\state_in[4] ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\state_in[3] ));
+defparam \state_in[3]~I .operation_mode = "normal";
+defparam \state_in[3]~I .synch_mode = "off";
+defparam \state_in[3]~I .register_cascade_mode = "off";
+defparam \state_in[3]~I .sum_lutc_input = "datac";
+defparam \state_in[3]~I .lut_mask = "FCF0";
+defparam \state_in[3]~I .output_mode = "reg_only";
+
+maxii_lcell \Equal2~1_I (
+	.dataa(\transfer_received_count[4] ),
+	.datab(\transfer_received_count[7] ),
+	.datac(\transfer_received_count[5] ),
+	.datad(\transfer_received_count[6] ),
+	.combout(\Equal2~1 ));
+defparam \Equal2~1_I .operation_mode = "normal";
+defparam \Equal2~1_I .synch_mode = "off";
+defparam \Equal2~1_I .register_cascade_mode = "off";
+defparam \Equal2~1_I .sum_lutc_input = "datac";
+defparam \Equal2~1_I .lut_mask = "0001";
+defparam \Equal2~1_I .output_mode = "comb_only";
+
+maxii_lcell \Equal2~0_I (
+	.datac(\transfer_received_count[1] ),
+	.datad(\transfer_received_count[0] ),
+	.combout(\Equal2~0 ));
+defparam \Equal2~0_I .operation_mode = "normal";
+defparam \Equal2~0_I .synch_mode = "off";
+defparam \Equal2~0_I .register_cascade_mode = "off";
+defparam \Equal2~0_I .sum_lutc_input = "datac";
+defparam \Equal2~0_I .lut_mask = "000F";
+defparam \Equal2~0_I .output_mode = "comb_only";
+
+maxii_lcell \Equal2~2_I (
+	.dataa(\transfer_received_count[3] ),
+	.datab(\Equal2~1 ),
+	.datac(\Equal2~0 ),
+	.datad(\transfer_received_count[2] ),
+	.combout(\Equal2~2 ));
+defparam \Equal2~2_I .operation_mode = "normal";
+defparam \Equal2~2_I .synch_mode = "off";
+defparam \Equal2~2_I .register_cascade_mode = "off";
+defparam \Equal2~2_I .sum_lutc_input = "datac";
+defparam \Equal2~2_I .lut_mask = "0040";
+defparam \Equal2~2_I .output_mode = "comb_only";
+
+maxii_lcell \state_in[5]~I (
+	.clk(uc_clk),
+	.dataa(\state_in[5] ),
+	.datab(\state_in[3] ),
+	.datac(\LessThan0~0 ),
+	.datad(\Equal2~2 ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\state_in[5] ));
+defparam \state_in[5]~I .operation_mode = "normal";
+defparam \state_in[5]~I .synch_mode = "off";
+defparam \state_in[5]~I .register_cascade_mode = "off";
+defparam \state_in[5]~I .sum_lutc_input = "datac";
+defparam \state_in[5]~I .lut_mask = "0CAE";
+defparam \state_in[5]~I .output_mode = "reg_only";
+
+maxii_lcell \state_in[0]~I (
+	.clk(uc_clk),
+	.dataa(\state_in[0] ),
+	.datab(\state_in[5] ),
+	.datac(\next_in~2 ),
+	.datad(\Equal2~2 ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\state_in[0] ));
+defparam \state_in[0]~I .operation_mode = "normal";
+defparam \state_in[0]~I .synch_mode = "off";
+defparam \state_in[0]~I .register_cascade_mode = "off";
+defparam \state_in[0]~I .sum_lutc_input = "datac";
+defparam \state_in[0]~I .lut_mask = "32FA";
+defparam \state_in[0]~I .output_mode = "reg_only";
+
+maxii_lcell \state_in[1]~I (
+	.clk(uc_clk),
+	.dataa(\next_in~2 ),
+	.datab(\next_in[2]~5 ),
+	.datac(\state_in[0] ),
+	.datad(\state_in[1] ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\state_in[1] ));
+defparam \state_in[1]~I .operation_mode = "normal";
+defparam \state_in[1]~I .synch_mode = "off";
+defparam \state_in[1]~I .register_cascade_mode = "off";
+defparam \state_in[1]~I .sum_lutc_input = "datac";
+defparam \state_in[1]~I .lut_mask = "3B0A";
+defparam \state_in[1]~I .output_mode = "reg_only";
+
+maxii_lcell \state_in[2]~I (
+	.clk(uc_clk),
+	.dataa(uc_in[21]),
+	.datab(\state_in[1] ),
+	.datac(uc_in[20]),
+	.datad(uc_in[19]),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\state_in[2] ));
+defparam \state_in[2]~I .operation_mode = "normal";
+defparam \state_in[2]~I .synch_mode = "off";
+defparam \state_in[2]~I .register_cascade_mode = "off";
+defparam \state_in[2]~I .sum_lutc_input = "datac";
+defparam \state_in[2]~I .lut_mask = "0008";
+defparam \state_in[2]~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_received~reg0_I (
+	.clk(uc_clk),
+	.datab(\state_in[2] ),
+	.datac(\state_in[0] ),
+	.datad(\transfer_received~reg0 ),
+	.aclr(__ALT_INV__uc_reset),
+	.regout(\transfer_received~reg0 ));
+defparam \transfer_received~reg0_I .operation_mode = "normal";
+defparam \transfer_received~reg0_I .synch_mode = "off";
+defparam \transfer_received~reg0_I .register_cascade_mode = "off";
+defparam \transfer_received~reg0_I .sum_lutc_input = "datac";
+defparam \transfer_received~reg0_I .lut_mask = "FCCC";
+defparam \transfer_received~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \transfer_to_device[0]~0_I (
+	.dataa(\state_in[4] ),
+	.datab(uc_reset),
+	.datad(uc_in[22]),
+	.combout(\transfer_to_device[0]~0 ));
+defparam \transfer_to_device[0]~0_I .operation_mode = "normal";
+defparam \transfer_to_device[0]~0_I .synch_mode = "off";
+defparam \transfer_to_device[0]~0_I .register_cascade_mode = "off";
+defparam \transfer_to_device[0]~0_I .sum_lutc_input = "datac";
+defparam \transfer_to_device[0]~0_I .lut_mask = "8800";
+defparam \transfer_to_device[0]~0_I .output_mode = "comb_only";
+
+maxii_lcell \transfer_to_device[0]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[0]),
+	.aclr(gnd),
+	.sload(vcc),
+	.ena(\transfer_to_device[0]~0 ),
+	.regout(\transfer_to_device[0]~reg0 ));
+defparam \transfer_to_device[0]~reg0_I .operation_mode = "normal";
+defparam \transfer_to_device[0]~reg0_I .synch_mode = "on";
+defparam \transfer_to_device[0]~reg0_I .register_cascade_mode = "off";
+defparam \transfer_to_device[0]~reg0_I .sum_lutc_input = "datac";
+defparam \transfer_to_device[0]~reg0_I .lut_mask = "0000";
+defparam \transfer_to_device[0]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \transfer_to_device[1]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[1]),
+	.aclr(gnd),
+	.sload(vcc),
+	.ena(\transfer_to_device[0]~0 ),
+	.regout(\transfer_to_device[1]~reg0 ));
+defparam \transfer_to_device[1]~reg0_I .operation_mode = "normal";
+defparam \transfer_to_device[1]~reg0_I .synch_mode = "on";
+defparam \transfer_to_device[1]~reg0_I .register_cascade_mode = "off";
+defparam \transfer_to_device[1]~reg0_I .sum_lutc_input = "datac";
+defparam \transfer_to_device[1]~reg0_I .lut_mask = "0000";
+defparam \transfer_to_device[1]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \transfer_to_device[2]~reg0_I (
+	.clk(uc_clk),
+	.datad(uc_in[2]),
+	.aclr(gnd),
+	.ena(\transfer_to_device[0]~0 ),
+	.regout(\transfer_to_device[2]~reg0 ));
+defparam \transfer_to_device[2]~reg0_I .operation_mode = "normal";
+defparam \transfer_to_device[2]~reg0_I .synch_mode = "off";
+defparam \transfer_to_device[2]~reg0_I .register_cascade_mode = "off";
+defparam \transfer_to_device[2]~reg0_I .sum_lutc_input = "datac";
+defparam \transfer_to_device[2]~reg0_I .lut_mask = "FF00";
+defparam \transfer_to_device[2]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \transfer_to_device[3]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[3]),
+	.aclr(gnd),
+	.sload(vcc),
+	.ena(\transfer_to_device[0]~0 ),
+	.regout(\transfer_to_device[3]~reg0 ));
+defparam \transfer_to_device[3]~reg0_I .operation_mode = "normal";
+defparam \transfer_to_device[3]~reg0_I .synch_mode = "on";
+defparam \transfer_to_device[3]~reg0_I .register_cascade_mode = "off";
+defparam \transfer_to_device[3]~reg0_I .sum_lutc_input = "datac";
+defparam \transfer_to_device[3]~reg0_I .lut_mask = "0000";
+defparam \transfer_to_device[3]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \transfer_to_device[4]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[4]),
+	.aclr(gnd),
+	.sload(vcc),
+	.ena(\transfer_to_device[0]~0 ),
+	.regout(\transfer_to_device[4]~reg0 ));
+defparam \transfer_to_device[4]~reg0_I .operation_mode = "normal";
+defparam \transfer_to_device[4]~reg0_I .synch_mode = "on";
+defparam \transfer_to_device[4]~reg0_I .register_cascade_mode = "off";
+defparam \transfer_to_device[4]~reg0_I .sum_lutc_input = "datac";
+defparam \transfer_to_device[4]~reg0_I .lut_mask = "0000";
+defparam \transfer_to_device[4]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \transfer_to_device[5]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[5]),
+	.aclr(gnd),
+	.sload(vcc),
+	.ena(\transfer_to_device[0]~0 ),
+	.regout(\transfer_to_device[5]~reg0 ));
+defparam \transfer_to_device[5]~reg0_I .operation_mode = "normal";
+defparam \transfer_to_device[5]~reg0_I .synch_mode = "on";
+defparam \transfer_to_device[5]~reg0_I .register_cascade_mode = "off";
+defparam \transfer_to_device[5]~reg0_I .sum_lutc_input = "datac";
+defparam \transfer_to_device[5]~reg0_I .lut_mask = "0000";
+defparam \transfer_to_device[5]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \transfer_to_device[6]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[6]),
+	.aclr(gnd),
+	.sload(vcc),
+	.ena(\transfer_to_device[0]~0 ),
+	.regout(\transfer_to_device[6]~reg0 ));
+defparam \transfer_to_device[6]~reg0_I .operation_mode = "normal";
+defparam \transfer_to_device[6]~reg0_I .synch_mode = "on";
+defparam \transfer_to_device[6]~reg0_I .register_cascade_mode = "off";
+defparam \transfer_to_device[6]~reg0_I .sum_lutc_input = "datac";
+defparam \transfer_to_device[6]~reg0_I .lut_mask = "0000";
+defparam \transfer_to_device[6]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \transfer_to_device[7]~reg0_I (
+	.clk(uc_clk),
+	.datac(uc_in[7]),
+	.aclr(gnd),
+	.sload(vcc),
+	.ena(\transfer_to_device[0]~0 ),
+	.regout(\transfer_to_device[7]~reg0 ));
+defparam \transfer_to_device[7]~reg0_I .operation_mode = "normal";
+defparam \transfer_to_device[7]~reg0_I .synch_mode = "on";
+defparam \transfer_to_device[7]~reg0_I .register_cascade_mode = "off";
+defparam \transfer_to_device[7]~reg0_I .sum_lutc_input = "datac";
+defparam \transfer_to_device[7]~reg0_I .lut_mask = "0000";
+defparam \transfer_to_device[7]~reg0_I .output_mode = "reg_only";
+
+assign uc_out[0] = \uc_out[0]~reg0 ;
+
+assign uc_out[1] = \uc_out[1]~reg0 ;
+
+assign uc_out[2] = \uc_out[2]~reg0 ;
+
+assign uc_out[3] = \uc_out[3]~reg0 ;
+
+assign uc_out[4] = \uc_out[4]~reg0 ;
+
+assign uc_out[5] = \uc_out[5]~reg0 ;
+
+assign uc_out[6] = \uc_out[6]~reg0 ;
+
+assign uc_out[7] = \uc_out[7]~reg0 ;
+
+assign uc_out[8] = \uc_out~2 ;
+
+assign uc_out[9] = \uc_out~3 ;
+
+assign uc_out[10] = \uc_out~4 ;
+
+assign uc_out[11] = \uc_out~5 ;
+
+assign uc_out[12] = \uc_out~6 ;
+
+assign uc_out[13] = \uc_out~7 ;
+
+assign uc_out[14] = \uc_out~8 ;
+
+assign uc_out[15] = \uc_out~9 ;
+
+assign uc_out[16] = \uc_out~10 ;
+
+assign uc_out[17] = \uc_out~11 ;
+
+assign uc_out[18] = \uc_out~12 ;
+
+assign uc_out[19] = gnd;
+
+assign uc_out[20] = \uc_out~13 ;
+
+assign uc_out[21] = \uc_out~14 ;
+
+assign transfer_received = \transfer_received~reg0 ;
+
+assign transfer_ready = uc_in[22];
+
+assign transfer_busy = uc_in[23];
+
+assign ept_length[0] = \ept_length[0]~reg0 ;
+
+assign ept_length[1] = \ept_length[1]~reg0 ;
+
+assign ept_length[2] = \ept_length[2]~reg0 ;
+
+assign ept_length[3] = \ept_length[3]~reg0 ;
+
+assign ept_length[4] = \ept_length[4]~reg0 ;
+
+assign ept_length[5] = \ept_length[5]~reg0 ;
+
+assign ept_length[6] = \ept_length[6]~reg0 ;
+
+assign ept_length[7] = \ept_length[7]~reg0 ;
+
+assign transfer_to_device[0] = \transfer_to_device[0]~reg0 ;
+
+assign transfer_to_device[1] = \transfer_to_device[1]~reg0 ;
+
+assign transfer_to_device[2] = \transfer_to_device[2]~reg0 ;
+
+assign transfer_to_device[3] = \transfer_to_device[3]~reg0 ;
+
+assign transfer_to_device[4] = \transfer_to_device[4]~reg0 ;
+
+assign transfer_to_device[5] = \transfer_to_device[5]~reg0 ;
+
+assign transfer_to_device[6] = \transfer_to_device[6]~reg0 ;
+
+assign transfer_to_device[7] = \transfer_to_device[7]~reg0 ;
+
+endmodule

@@ -1,0 +1,12 @@
+PowerPlay Power Analyzer Status : Successful - Tue Mar 13 19:14:39 2018
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Revision Name : EPT_10M04_AF_S2_Top
+Top-level Entity Name : EPT_10M04_AF_S2_Top
+Family : MAX 10
+Device : 10M16DCU324A7G
+Power Models : Final
+Total Thermal Power Dissipation : 89.89 mW
+Core Dynamic Thermal Power Dissipation : 0.00 mW
+Core Static Thermal Power Dissipation : 83.68 mW
+I/O Thermal Power Dissipation : 6.21 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

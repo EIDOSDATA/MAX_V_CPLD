@@ -1,0 +1,361 @@
+// Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, the Altera Quartus II License Agreement,
+// the Altera MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Altera and sold by Altera or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 14.0.0 Build 200 06/17/2014 SJ Web Edition"
+
+// DATE "08/15/2015 01:01:17"
+
+module 	active_control_register (
+	CLK,
+	RST,
+	TRANSFER_IN_RECEIVED,
+	TRANSFER_IN_BYTE,
+	CONTROL_REGISTER);
+input 	CLK;
+input 	RST;
+input 	TRANSFER_IN_RECEIVED;
+input 	[7:0] TRANSFER_IN_BYTE;
+output 	[7:0] CONTROL_REGISTER;
+wire \transfer_control_state.TRANSFER_CONTROL_SET ;
+wire \Equal1~0 ;
+wire \Equal0~0 ;
+wire \Equal0~1 ;
+wire \Equal1~1 ;
+wire transfer_in_received_reg;
+wire \always0~0 ;
+wire \Selector0~0 ;
+wire \Selector0~1 ;
+wire \transfer_control_state.TRANSFER_CONTROL_IDLE ;
+wire \transfer_control_state.TRANSFER_CONTROL_HDR1 ;
+wire \transfer_control_state.TRANSFER_CONTROL_HDR2 ;
+wire \transfer_control_state.TRANSFER_DECODE_BYTE ;
+wire \CONTROL_REGISTER[0]~0 ;
+wire \CONTROL_REGISTER[0]~reg0 ;
+wire \CONTROL_REGISTER[1]~reg0 ;
+wire \CONTROL_REGISTER[2]~reg0 ;
+wire \CONTROL_REGISTER[3]~reg0 ;
+wire \CONTROL_REGISTER[4]~reg0 ;
+wire \CONTROL_REGISTER[5]~reg0 ;
+wire \CONTROL_REGISTER[6]~reg0 ;
+wire \CONTROL_REGISTER[7]~reg0 ;
+
+wire __ALT_INV__RST;
+
+wire gnd;
+wire vcc;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+
+assign __ALT_INV__RST = ~ RST;
+
+maxii_lcell \Equal1~0_I (
+	.dataa(TRANSFER_IN_BYTE[1]),
+	.datab(TRANSFER_IN_BYTE[2]),
+	.datac(TRANSFER_IN_BYTE[5]),
+	.datad(TRANSFER_IN_BYTE[6]),
+	.combout(\Equal1~0 ));
+defparam \Equal1~0_I .operation_mode = "normal";
+defparam \Equal1~0_I .synch_mode = "off";
+defparam \Equal1~0_I .register_cascade_mode = "off";
+defparam \Equal1~0_I .sum_lutc_input = "datac";
+defparam \Equal1~0_I .lut_mask = "0200";
+defparam \Equal1~0_I .output_mode = "comb_only";
+
+maxii_lcell \Equal0~0_I (
+	.dataa(TRANSFER_IN_BYTE[3]),
+	.datab(TRANSFER_IN_BYTE[0]),
+	.datac(TRANSFER_IN_BYTE[1]),
+	.datad(TRANSFER_IN_BYTE[6]),
+	.combout(\Equal0~0 ));
+defparam \Equal0~0_I .operation_mode = "normal";
+defparam \Equal0~0_I .synch_mode = "off";
+defparam \Equal0~0_I .register_cascade_mode = "off";
+defparam \Equal0~0_I .sum_lutc_input = "datac";
+defparam \Equal0~0_I .lut_mask = "2000";
+defparam \Equal0~0_I .output_mode = "comb_only";
+
+maxii_lcell \Equal0~1_I (
+	.datab(\Equal0~0 ),
+	.datac(TRANSFER_IN_BYTE[7]),
+	.datad(TRANSFER_IN_BYTE[4]),
+	.combout(\Equal0~1 ));
+defparam \Equal0~1_I .operation_mode = "normal";
+defparam \Equal0~1_I .synch_mode = "off";
+defparam \Equal0~1_I .register_cascade_mode = "off";
+defparam \Equal0~1_I .sum_lutc_input = "datac";
+defparam \Equal0~1_I .lut_mask = "0C00";
+defparam \Equal0~1_I .output_mode = "comb_only";
+
+maxii_lcell \Equal1~1_I (
+	.dataa(TRANSFER_IN_BYTE[3]),
+	.datab(TRANSFER_IN_BYTE[0]),
+	.datac(TRANSFER_IN_BYTE[7]),
+	.datad(TRANSFER_IN_BYTE[4]),
+	.combout(\Equal1~1 ));
+defparam \Equal1~1_I .operation_mode = "normal";
+defparam \Equal1~1_I .synch_mode = "off";
+defparam \Equal1~1_I .register_cascade_mode = "off";
+defparam \Equal1~1_I .sum_lutc_input = "datac";
+defparam \Equal1~1_I .lut_mask = "0040";
+defparam \Equal1~1_I .output_mode = "comb_only";
+
+maxii_lcell \transfer_in_received_reg~I (
+	.clk(CLK),
+	.datab(\transfer_control_state.TRANSFER_DECODE_BYTE ),
+	.datac(TRANSFER_IN_RECEIVED),
+	.datad(TRANSFER_IN_RECEIVED),
+	.aclr(__ALT_INV__RST),
+	.sload(vcc),
+	.combout(\CONTROL_REGISTER[0]~0 ),
+	.regout(transfer_in_received_reg));
+defparam \transfer_in_received_reg~I .operation_mode = "normal";
+defparam \transfer_in_received_reg~I .synch_mode = "on";
+defparam \transfer_in_received_reg~I .register_cascade_mode = "off";
+defparam \transfer_in_received_reg~I .sum_lutc_input = "qfbk";
+defparam \transfer_in_received_reg~I .lut_mask = "0C00";
+defparam \transfer_in_received_reg~I .output_mode = "reg_and_comb";
+
+maxii_lcell \always0~0_I (
+	.datab(TRANSFER_IN_RECEIVED),
+	.datad(transfer_in_received_reg),
+	.combout(\always0~0 ));
+defparam \always0~0_I .operation_mode = "normal";
+defparam \always0~0_I .synch_mode = "off";
+defparam \always0~0_I .register_cascade_mode = "off";
+defparam \always0~0_I .sum_lutc_input = "datac";
+defparam \always0~0_I .lut_mask = "00CC";
+defparam \always0~0_I .output_mode = "comb_only";
+
+maxii_lcell \transfer_control_state.TRANSFER_CONTROL_SET~I (
+	.clk(CLK),
+	.dataa(\Equal1~0 ),
+	.datab(\transfer_control_state.TRANSFER_CONTROL_HDR1 ),
+	.datac(\transfer_control_state.TRANSFER_DECODE_BYTE ),
+	.datad(\Equal1~1 ),
+	.aclr(__ALT_INV__RST),
+	.sload(vcc),
+	.ena(\always0~0 ),
+	.combout(\Selector0~0 ),
+	.regout(\transfer_control_state.TRANSFER_CONTROL_SET ));
+defparam \transfer_control_state.TRANSFER_CONTROL_SET~I .operation_mode = "normal";
+defparam \transfer_control_state.TRANSFER_CONTROL_SET~I .synch_mode = "on";
+defparam \transfer_control_state.TRANSFER_CONTROL_SET~I .register_cascade_mode = "off";
+defparam \transfer_control_state.TRANSFER_CONTROL_SET~I .sum_lutc_input = "qfbk";
+defparam \transfer_control_state.TRANSFER_CONTROL_SET~I .lut_mask = "F4FC";
+defparam \transfer_control_state.TRANSFER_CONTROL_SET~I .output_mode = "comb_only";
+
+maxii_lcell \Selector0~1_I (
+	.dataa(\transfer_control_state.TRANSFER_CONTROL_HDR2 ),
+	.datab(TRANSFER_IN_BYTE[2]),
+	.datac(TRANSFER_IN_BYTE[5]),
+	.datad(\Equal0~1 ),
+	.combout(\Selector0~1 ));
+defparam \Selector0~1_I .operation_mode = "normal";
+defparam \Selector0~1_I .synch_mode = "off";
+defparam \Selector0~1_I .register_cascade_mode = "off";
+defparam \Selector0~1_I .sum_lutc_input = "datac";
+defparam \Selector0~1_I .lut_mask = "8100";
+defparam \Selector0~1_I .output_mode = "comb_only";
+
+maxii_lcell \transfer_control_state.TRANSFER_CONTROL_IDLE~I (
+	.clk(CLK),
+	.dataa(\Selector0~0 ),
+	.datab(\Selector0~1 ),
+	.datac(\transfer_control_state.TRANSFER_CONTROL_HDR2 ),
+	.datad(\transfer_control_state.TRANSFER_CONTROL_IDLE ),
+	.aclr(__ALT_INV__RST),
+	.ena(\always0~0 ),
+	.regout(\transfer_control_state.TRANSFER_CONTROL_IDLE ));
+defparam \transfer_control_state.TRANSFER_CONTROL_IDLE~I .operation_mode = "normal";
+defparam \transfer_control_state.TRANSFER_CONTROL_IDLE~I .synch_mode = "off";
+defparam \transfer_control_state.TRANSFER_CONTROL_IDLE~I .register_cascade_mode = "off";
+defparam \transfer_control_state.TRANSFER_CONTROL_IDLE~I .sum_lutc_input = "datac";
+defparam \transfer_control_state.TRANSFER_CONTROL_IDLE~I .lut_mask = "4504";
+defparam \transfer_control_state.TRANSFER_CONTROL_IDLE~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_control_state.TRANSFER_CONTROL_HDR1~I (
+	.clk(CLK),
+	.dataa(\Equal0~1 ),
+	.datab(TRANSFER_IN_BYTE[2]),
+	.datac(TRANSFER_IN_BYTE[5]),
+	.datad(\transfer_control_state.TRANSFER_CONTROL_IDLE ),
+	.aclr(__ALT_INV__RST),
+	.ena(\always0~0 ),
+	.regout(\transfer_control_state.TRANSFER_CONTROL_HDR1 ));
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR1~I .operation_mode = "normal";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR1~I .synch_mode = "off";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR1~I .register_cascade_mode = "off";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR1~I .sum_lutc_input = "datac";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR1~I .lut_mask = "0002";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR1~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_control_state.TRANSFER_CONTROL_HDR2~I (
+	.clk(CLK),
+	.dataa(\Equal1~0 ),
+	.datab(\transfer_control_state.TRANSFER_CONTROL_HDR1 ),
+	.datad(\Equal1~1 ),
+	.aclr(__ALT_INV__RST),
+	.ena(\always0~0 ),
+	.regout(\transfer_control_state.TRANSFER_CONTROL_HDR2 ));
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR2~I .operation_mode = "normal";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR2~I .synch_mode = "off";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR2~I .register_cascade_mode = "off";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR2~I .sum_lutc_input = "datac";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR2~I .lut_mask = "8800";
+defparam \transfer_control_state.TRANSFER_CONTROL_HDR2~I .output_mode = "reg_only";
+
+maxii_lcell \transfer_control_state.TRANSFER_DECODE_BYTE~I (
+	.clk(CLK),
+	.dataa(\transfer_control_state.TRANSFER_CONTROL_HDR2 ),
+	.datab(TRANSFER_IN_BYTE[2]),
+	.datac(TRANSFER_IN_BYTE[5]),
+	.datad(\Equal0~1 ),
+	.aclr(__ALT_INV__RST),
+	.ena(\always0~0 ),
+	.regout(\transfer_control_state.TRANSFER_DECODE_BYTE ));
+defparam \transfer_control_state.TRANSFER_DECODE_BYTE~I .operation_mode = "normal";
+defparam \transfer_control_state.TRANSFER_DECODE_BYTE~I .synch_mode = "off";
+defparam \transfer_control_state.TRANSFER_DECODE_BYTE~I .register_cascade_mode = "off";
+defparam \transfer_control_state.TRANSFER_DECODE_BYTE~I .sum_lutc_input = "datac";
+defparam \transfer_control_state.TRANSFER_DECODE_BYTE~I .lut_mask = "8000";
+defparam \transfer_control_state.TRANSFER_DECODE_BYTE~I .output_mode = "reg_only";
+
+maxii_lcell \CONTROL_REGISTER[0]~reg0_I (
+	.clk(CLK),
+	.datad(TRANSFER_IN_BYTE[0]),
+	.aclr(__ALT_INV__RST),
+	.ena(\CONTROL_REGISTER[0]~0 ),
+	.regout(\CONTROL_REGISTER[0]~reg0 ));
+defparam \CONTROL_REGISTER[0]~reg0_I .operation_mode = "normal";
+defparam \CONTROL_REGISTER[0]~reg0_I .synch_mode = "off";
+defparam \CONTROL_REGISTER[0]~reg0_I .register_cascade_mode = "off";
+defparam \CONTROL_REGISTER[0]~reg0_I .sum_lutc_input = "datac";
+defparam \CONTROL_REGISTER[0]~reg0_I .lut_mask = "FF00";
+defparam \CONTROL_REGISTER[0]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \CONTROL_REGISTER[1]~reg0_I (
+	.clk(CLK),
+	.datac(TRANSFER_IN_BYTE[1]),
+	.aclr(__ALT_INV__RST),
+	.sload(vcc),
+	.ena(\CONTROL_REGISTER[0]~0 ),
+	.regout(\CONTROL_REGISTER[1]~reg0 ));
+defparam \CONTROL_REGISTER[1]~reg0_I .operation_mode = "normal";
+defparam \CONTROL_REGISTER[1]~reg0_I .synch_mode = "on";
+defparam \CONTROL_REGISTER[1]~reg0_I .register_cascade_mode = "off";
+defparam \CONTROL_REGISTER[1]~reg0_I .sum_lutc_input = "datac";
+defparam \CONTROL_REGISTER[1]~reg0_I .lut_mask = "0000";
+defparam \CONTROL_REGISTER[1]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \CONTROL_REGISTER[2]~reg0_I (
+	.clk(CLK),
+	.datad(TRANSFER_IN_BYTE[2]),
+	.aclr(__ALT_INV__RST),
+	.ena(\CONTROL_REGISTER[0]~0 ),
+	.regout(\CONTROL_REGISTER[2]~reg0 ));
+defparam \CONTROL_REGISTER[2]~reg0_I .operation_mode = "normal";
+defparam \CONTROL_REGISTER[2]~reg0_I .synch_mode = "off";
+defparam \CONTROL_REGISTER[2]~reg0_I .register_cascade_mode = "off";
+defparam \CONTROL_REGISTER[2]~reg0_I .sum_lutc_input = "datac";
+defparam \CONTROL_REGISTER[2]~reg0_I .lut_mask = "FF00";
+defparam \CONTROL_REGISTER[2]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \CONTROL_REGISTER[3]~reg0_I (
+	.clk(CLK),
+	.datad(TRANSFER_IN_BYTE[3]),
+	.aclr(__ALT_INV__RST),
+	.ena(\CONTROL_REGISTER[0]~0 ),
+	.regout(\CONTROL_REGISTER[3]~reg0 ));
+defparam \CONTROL_REGISTER[3]~reg0_I .operation_mode = "normal";
+defparam \CONTROL_REGISTER[3]~reg0_I .synch_mode = "off";
+defparam \CONTROL_REGISTER[3]~reg0_I .register_cascade_mode = "off";
+defparam \CONTROL_REGISTER[3]~reg0_I .sum_lutc_input = "datac";
+defparam \CONTROL_REGISTER[3]~reg0_I .lut_mask = "FF00";
+defparam \CONTROL_REGISTER[3]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \CONTROL_REGISTER[4]~reg0_I (
+	.clk(CLK),
+	.datad(TRANSFER_IN_BYTE[4]),
+	.aclr(__ALT_INV__RST),
+	.ena(\CONTROL_REGISTER[0]~0 ),
+	.regout(\CONTROL_REGISTER[4]~reg0 ));
+defparam \CONTROL_REGISTER[4]~reg0_I .operation_mode = "normal";
+defparam \CONTROL_REGISTER[4]~reg0_I .synch_mode = "off";
+defparam \CONTROL_REGISTER[4]~reg0_I .register_cascade_mode = "off";
+defparam \CONTROL_REGISTER[4]~reg0_I .sum_lutc_input = "datac";
+defparam \CONTROL_REGISTER[4]~reg0_I .lut_mask = "FF00";
+defparam \CONTROL_REGISTER[4]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \CONTROL_REGISTER[5]~reg0_I (
+	.clk(CLK),
+	.datac(TRANSFER_IN_BYTE[5]),
+	.aclr(__ALT_INV__RST),
+	.sload(vcc),
+	.ena(\CONTROL_REGISTER[0]~0 ),
+	.regout(\CONTROL_REGISTER[5]~reg0 ));
+defparam \CONTROL_REGISTER[5]~reg0_I .operation_mode = "normal";
+defparam \CONTROL_REGISTER[5]~reg0_I .synch_mode = "on";
+defparam \CONTROL_REGISTER[5]~reg0_I .register_cascade_mode = "off";
+defparam \CONTROL_REGISTER[5]~reg0_I .sum_lutc_input = "datac";
+defparam \CONTROL_REGISTER[5]~reg0_I .lut_mask = "0000";
+defparam \CONTROL_REGISTER[5]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \CONTROL_REGISTER[6]~reg0_I (
+	.clk(CLK),
+	.datad(TRANSFER_IN_BYTE[6]),
+	.aclr(__ALT_INV__RST),
+	.ena(\CONTROL_REGISTER[0]~0 ),
+	.regout(\CONTROL_REGISTER[6]~reg0 ));
+defparam \CONTROL_REGISTER[6]~reg0_I .operation_mode = "normal";
+defparam \CONTROL_REGISTER[6]~reg0_I .synch_mode = "off";
+defparam \CONTROL_REGISTER[6]~reg0_I .register_cascade_mode = "off";
+defparam \CONTROL_REGISTER[6]~reg0_I .sum_lutc_input = "datac";
+defparam \CONTROL_REGISTER[6]~reg0_I .lut_mask = "FF00";
+defparam \CONTROL_REGISTER[6]~reg0_I .output_mode = "reg_only";
+
+maxii_lcell \CONTROL_REGISTER[7]~reg0_I (
+	.clk(CLK),
+	.datac(TRANSFER_IN_BYTE[7]),
+	.aclr(__ALT_INV__RST),
+	.sload(vcc),
+	.ena(\CONTROL_REGISTER[0]~0 ),
+	.regout(\CONTROL_REGISTER[7]~reg0 ));
+defparam \CONTROL_REGISTER[7]~reg0_I .operation_mode = "normal";
+defparam \CONTROL_REGISTER[7]~reg0_I .synch_mode = "on";
+defparam \CONTROL_REGISTER[7]~reg0_I .register_cascade_mode = "off";
+defparam \CONTROL_REGISTER[7]~reg0_I .sum_lutc_input = "datac";
+defparam \CONTROL_REGISTER[7]~reg0_I .lut_mask = "0000";
+defparam \CONTROL_REGISTER[7]~reg0_I .output_mode = "reg_only";
+
+assign CONTROL_REGISTER[0] = \CONTROL_REGISTER[0]~reg0 ;
+
+assign CONTROL_REGISTER[1] = \CONTROL_REGISTER[1]~reg0 ;
+
+assign CONTROL_REGISTER[2] = \CONTROL_REGISTER[2]~reg0 ;
+
+assign CONTROL_REGISTER[3] = \CONTROL_REGISTER[3]~reg0 ;
+
+assign CONTROL_REGISTER[4] = \CONTROL_REGISTER[4]~reg0 ;
+
+assign CONTROL_REGISTER[5] = \CONTROL_REGISTER[5]~reg0 ;
+
+assign CONTROL_REGISTER[6] = \CONTROL_REGISTER[6]~reg0 ;
+
+assign CONTROL_REGISTER[7] = \CONTROL_REGISTER[7]~reg0 ;
+
+endmodule

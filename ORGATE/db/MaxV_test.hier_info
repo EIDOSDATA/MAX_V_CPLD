@@ -1,0 +1,6 @@
+|MaxV_test
+LED <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+pin_2 => inst6.IN0
+pin_1 => inst.IN0
+
+

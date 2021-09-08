@@ -1,0 +1,1 @@
+To load the UnoProLogic2 with the UnoProLyzer CPLD code, just double click on the "UnoProLogic2_CPLD_Loader_CMD_Line.bat" file in this folder.

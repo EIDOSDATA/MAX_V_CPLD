@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at EPT_10M04_AF_S2_Top.v(199): always construct contains both blocking and non-blocking assignments File: H:/Jolly/Code_FPGA/EPT_10M04_AF_Blinky/src/EPT_10M04_AF_S2_Top.v Line: 199
+Warning (10268): Verilog HDL information at EPT_10M04_AF_S2_Top.v(271): always construct contains both blocking and non-blocking assignments File: H:/Jolly/Code_FPGA/EPT_10M04_AF_Blinky/src/EPT_10M04_AF_S2_Top.v Line: 271

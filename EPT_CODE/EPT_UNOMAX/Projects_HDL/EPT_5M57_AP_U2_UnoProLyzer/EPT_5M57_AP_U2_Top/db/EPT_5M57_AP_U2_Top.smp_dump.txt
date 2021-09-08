@@ -1,0 +1,13 @@
+
+State Machine - |EPT_5M57_AP_U2_Top|serial_receive_data_reg
+Name serial_receive_data_reg.00 serial_receive_data_reg.10 serial_receive_data_reg.01 
+serial_receive_data_reg.00 0 0 0 
+serial_receive_data_reg.01 1 0 1 
+serial_receive_data_reg.10 1 1 0 
+
+State Machine - |EPT_5M57_AP_U2_Top|adc_cnvst_reg
+Name adc_cnvst_reg.11 adc_cnvst_reg.10 adc_cnvst_reg.01 adc_cnvst_reg.00 
+adc_cnvst_reg.00 0 0 0 0 
+adc_cnvst_reg.01 0 0 1 1 
+adc_cnvst_reg.10 0 1 0 1 
+adc_cnvst_reg.11 1 0 0 1 

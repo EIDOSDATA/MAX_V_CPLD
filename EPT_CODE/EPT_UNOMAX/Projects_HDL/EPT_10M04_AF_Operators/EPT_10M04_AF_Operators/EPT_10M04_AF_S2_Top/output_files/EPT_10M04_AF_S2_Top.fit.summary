@@ -1,0 +1,18 @@
+Fitter Status : Failed - Tue Mar 13 19:20:29 2018
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Revision Name : EPT_10M04_AF_S2_Top
+Top-level Entity Name : EPT_10M04_AF_S2_Top
+Family : MAX 10
+Device : 10M16DCU324A7G
+Timing Models : Final
+Total logic elements : 242 / 15,840 ( 2 % )
+    Total combinational functions : 242 / 15,840 ( 2 % )
+    Dedicated logic registers : 0 / 15,840 ( 0 % )
+Total registers : 0
+Total pins : 408 / 246 ( 166 % )
+Total virtual pins : 0
+Total memory bits : 0 / 562,176 ( 0 % )
+Embedded Multiplier 9-bit elements : 1 / 90 ( 1 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0

@@ -1,0 +1,84 @@
+# Reading pref.tcl
+# do UART_MAXV_TEST_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src {C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src/BaudRateGenerator.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:12:02 on Jan 20,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src" C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src/BaudRateGenerator.v 
+# -- Compiling module BaudRateGenerator
+# 
+# Top level modules:
+# 	BaudRateGenerator
+# End time: 17:12:02 on Jan 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src {C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src/UART_MAXV_TEST_TOP.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:12:02 on Jan 20,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src" C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src/UART_MAXV_TEST_TOP.v 
+# -- Compiling module UART_MAXV_TEST
+# 
+# Top level modules:
+# 	UART_MAXV_TEST
+# End time: 17:12:03 on Jan 20,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src {C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src/Uart8Transmitter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:12:03 on Jan 20,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src" C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src/Uart8Transmitter.v 
+# -- Compiling module Uart8Transmitter
+# 
+# Top level modules:
+# 	Uart8Transmitter
+# End time: 17:12:03 on Jan 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src {C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src/Uart8Receiver.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:12:03 on Jan 20,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src" C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src/Uart8Receiver.v 
+# -- Compiling module Uart8Receiver
+# 
+# Top level modules:
+# 	Uart8Receiver
+# End time: 17:12:03 on Jan 20,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim -gui -l msim_transcript work.UART_MAXV_TEST
+# vsim -gui -l msim_transcript work.UART_MAXV_TEST 
+# Start time: 17:12:15 on Jan 20,2021
+# Loading work.UART_MAXV_TEST
+# Loading work.BaudRateGenerator
+# Loading work.Uart8Receiver
+# Loading work.Uart8Transmitter
+add wave -position insertpoint sim:/UART_MAXV_TEST/*
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run -all
+run -all
+run -all
+run -continue
+run -continue
+run -continue
+run -continue
+# End time: 17:15:48 on Jan 20,2021, Elapsed time: 0:03:33
+# Errors: 0, Warnings: 0

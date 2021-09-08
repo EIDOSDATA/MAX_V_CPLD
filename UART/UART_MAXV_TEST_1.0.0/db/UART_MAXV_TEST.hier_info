@@ -1,0 +1,159 @@
+|UART_MAXV_TEST
+clk => clk.IN2
+RxD => RxD.IN1
+TxD << async_transmitter:TX.TxD
+GPout[0] << GPout[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+GPout[1] << GPout[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+GPout[2] << GPout[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+GPout[3] << GPout[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+GPout[4] << GPout[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+GPout[5] << GPout[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+GPout[6] << GPout[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+GPout[7] << GPout[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+GPin[0] => GPin[0].IN1
+GPin[1] => GPin[1].IN1
+GPin[2] => GPin[2].IN1
+GPin[3] => GPin[3].IN1
+GPin[4] => GPin[4].IN1
+GPin[5] => GPin[5].IN1
+GPin[6] => GPin[6].IN1
+GPin[7] => GPin[7].IN1
+SW_USER_1 => ~NO_FANOUT~
+SW_USER_2 => ~NO_FANOUT~
+TR_DIR_1 << <VCC>
+TR_OE_1 << <GND>
+TR_DIR_2 << <VCC>
+TR_OE_2 << <GND>
+TR_DIR_3 << <GND>
+TR_OE_3 << <GND>
+LED[0] << LED[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[1] << LED[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[2] << LED[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[3] << LED[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART_MAXV_TEST|async_receiver:RX
+clk => clk.IN1
+RxD => RxD_sync[0].DATAIN
+RxD_data_ready <= RxD_data_ready~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[0] <= RxD_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[1] <= RxD_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[2] <= RxD_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[3] <= RxD_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[4] <= RxD_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[5] <= RxD_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[6] <= RxD_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[7] <= RxD_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_idle <= GapCnt[5].DB_MAX_OUTPUT_PORT_TYPE
+RxD_endofpacket <= RxD_endofpacket~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART_MAXV_TEST|async_receiver:RX|BaudTickGen:tickgen
+clk => Acc[3].CLK
+clk => Acc[4].CLK
+clk => Acc[5].CLK
+clk => Acc[6].CLK
+clk => Acc[7].CLK
+clk => Acc[8].CLK
+clk => Acc[9].CLK
+clk => Acc[10].CLK
+clk => Acc[11].CLK
+clk => Acc[12].CLK
+clk => Acc[13].CLK
+clk => Acc[14].CLK
+clk => Acc[15].CLK
+clk => Acc[16].CLK
+clk => Acc[17].CLK
+clk => Acc[18].CLK
+clk => Acc[19].CLK
+clk => Acc[20].CLK
+clk => Acc[21].CLK
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+tick <= Acc[21].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART_MAXV_TEST|async_transmitter:TX
+clk => clk.IN1
+TxD_start => always0.IN1
+TxD_start => TxD_state.OUTPUTSELECT
+TxD_start => TxD_state.OUTPUTSELECT
+TxD_start => TxD_state.OUTPUTSELECT
+TxD_start => TxD_state.OUTPUTSELECT
+TxD_data[0] => TxD_shift.DATAB
+TxD_data[1] => TxD_shift.DATAB
+TxD_data[2] => TxD_shift.DATAB
+TxD_data[3] => TxD_shift.DATAB
+TxD_data[4] => TxD_shift.DATAB
+TxD_data[5] => TxD_shift.DATAB
+TxD_data[6] => TxD_shift.DATAB
+TxD_data[7] => TxD_shift.DATAB
+TxD <= TxD.DB_MAX_OUTPUT_PORT_TYPE
+TxD_busy <= TxD_busy.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART_MAXV_TEST|async_transmitter:TX|BaudTickGen:tickgen
+clk => Acc[0].CLK
+clk => Acc[1].CLK
+clk => Acc[2].CLK
+clk => Acc[3].CLK
+clk => Acc[4].CLK
+clk => Acc[5].CLK
+clk => Acc[6].CLK
+clk => Acc[7].CLK
+clk => Acc[8].CLK
+clk => Acc[9].CLK
+clk => Acc[10].CLK
+clk => Acc[11].CLK
+clk => Acc[12].CLK
+clk => Acc[13].CLK
+clk => Acc[14].CLK
+clk => Acc[15].CLK
+clk => Acc[16].CLK
+clk => Acc[17].CLK
+clk => Acc[18].CLK
+clk => Acc[19].CLK
+clk => Acc[20].CLK
+clk => Acc[21].CLK
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+tick <= Acc[21].DB_MAX_OUTPUT_PORT_TYPE
+
+

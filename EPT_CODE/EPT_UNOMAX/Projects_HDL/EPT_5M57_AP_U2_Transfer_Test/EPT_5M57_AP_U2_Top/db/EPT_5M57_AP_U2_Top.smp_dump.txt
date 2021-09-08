@@ -1,0 +1,21 @@
+
+State Machine - |EPT_5M57_AP_U2_Top|block_out_state
+Name block_out_state.BLOCK_OUT_TRANSMIT_END block_out_state.BLOCK_OUT_INCREMENT block_out_state.BLOCK_OUT_TRANSMIT block_out_state.000 
+block_out_state.000 0 0 0 0 
+block_out_state.BLOCK_OUT_TRANSMIT 0 0 1 1 
+block_out_state.BLOCK_OUT_INCREMENT 0 1 0 1 
+block_out_state.BLOCK_OUT_TRANSMIT_END 1 0 0 1 
+
+State Machine - |EPT_5M57_AP_U2_Top|block_in_state
+Name block_in_state.BLOCK_IN_INCREMENT block_in_state.BLOCK_IN_RECEIVE_LO block_in_state.BLOCK_IN_RECEIVE_HI block_in_state.000 block_in_state.BLOCK_IN_COMPLETE 
+block_in_state.000 0 0 0 0 0 
+block_in_state.BLOCK_IN_RECEIVE_HI 0 0 1 1 0 
+block_in_state.BLOCK_IN_RECEIVE_LO 0 1 0 1 0 
+block_in_state.BLOCK_IN_INCREMENT 1 0 0 1 0 
+block_in_state.BLOCK_IN_COMPLETE 0 0 0 1 1 
+
+State Machine - |EPT_5M57_AP_U2_Top|transfer_to_host_state
+Name transfer_to_host_state.TRANSFER_HOST_IDLE transfer_to_host_state.TRANSFER_HOST_LOOPBACK_COMPLETE transfer_to_host_state.TRANSFER_HOST_LOOPBACK_START 
+transfer_to_host_state.TRANSFER_HOST_IDLE 0 0 0 
+transfer_to_host_state.TRANSFER_HOST_LOOPBACK_START 1 0 1 
+transfer_to_host_state.TRANSFER_HOST_LOOPBACK_COMPLETE 1 1 0 

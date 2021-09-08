@@ -1,0 +1,44 @@
+|SPI_MAXV_TEST
+clk => byte_data_sent[0].CLK
+clk => byte_data_sent[1].CLK
+clk => byte_data_sent[2].CLK
+clk => byte_data_sent[3].CLK
+clk => byte_data_sent[4].CLK
+clk => byte_data_sent[5].CLK
+clk => byte_data_sent[6].CLK
+clk => byte_data_sent[7].CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+clk => LED~reg0.CLK
+clk => byte_received.CLK
+clk => byte_data_received[0].CLK
+clk => bitcnt[0].CLK
+clk => bitcnt[1].CLK
+clk => bitcnt[2].CLK
+clk => MOSIr[0].CLK
+clk => MOSIr[1].CLK
+clk => SSELr[0].CLK
+clk => SSELr[1].CLK
+clk => SSELr[2].CLK
+clk => SCKr[0].CLK
+clk => SCKr[1].CLK
+clk => SCKr[2].CLK
+SCK => SCKr[0].DATAIN
+MOSI => MOSIr[0].DATAIN
+MISO << byte_data_sent[7].DB_MAX_OUTPUT_PORT_TYPE
+SSEL => SSELr[0].DATAIN
+LED << LED~reg0.DB_MAX_OUTPUT_PORT_TYPE
+TR_DIR_1 << <VCC>
+TR_OE_1 << <GND>
+TR_DIR_2 << <VCC>
+TR_OE_2 << <GND>
+TR_DIR_3 << <GND>
+TR_OE_3 << <GND>
+
+

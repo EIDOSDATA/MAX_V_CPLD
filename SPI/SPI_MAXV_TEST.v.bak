@@ -1,0 +1,7 @@
+module SPI_slave(clk, SCK, MOSI, MISO, SSEL, LED);
+input clk;
+
+input SCK, SSEL, MOSI;
+output MISO;
+
+output LED;

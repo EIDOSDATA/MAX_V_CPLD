@@ -1,0 +1,17 @@
+C:\Jolly\Products\Earth People Technology\EPT USB-CPLD Development System\Projects_ActiveHost_32Bit\EPT_Transfer_Test\EPT_Transfer_Test\bin\Release\EPT_Transfer_Test.exe
+C:\Jolly\Products\Earth People Technology\EPT USB-CPLD Development System\Projects_ActiveHost_32Bit\EPT_Transfer_Test\EPT_Transfer_Test\bin\Release\EPT_Transfer_Test.pdb
+C:\Jolly\Products\Earth People Technology\EPT USB-CPLD Development System\Projects_ActiveHost_32Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Jolly\Products\Earth People Technology\EPT USB-CPLD Development System\Projects_ActiveHost_32Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\EPT_Transfer_Test.Properties.Resources.resources
+C:\Jolly\Products\Earth People Technology\EPT USB-CPLD Development System\Projects_ActiveHost_32Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Jolly\Products\Earth People Technology\EPT USB-CPLD Development System\Projects_ActiveHost_32Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Jolly\Products\Earth People Technology\EPT USB-CPLD Development System\Projects_ActiveHost_32Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\EPT_Transfer_Test.exe
+C:\Jolly\Products\Earth People Technology\EPT USB-CPLD Development System\Projects_ActiveHost_32Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\EPT_Transfer_Test.pdb
+C:\Jolly\Projects\Earth People Technology\EPT_Transfer_Test\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\EPT_Transfer_Test.exe
+C:\Jolly\Projects\Earth People Technology\EPT_Transfer_Test\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\EPT_Transfer_Test.pdb
+C:\Jolly\Projects\Earth People Technology\EPT_Transfer_Test\EPT_Transfer_Test\EPT_Transfer_Test\bin\Release\EPT_Transfer_Test.exe
+C:\Jolly\Projects\Earth People Technology\EPT_Transfer_Test\EPT_Transfer_Test\EPT_Transfer_Test\bin\Release\EPT_Transfer_Test.pdb
+C:\Jolly\Projects\Earth People Technology\EPT_Transfer_Test\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Jolly\Projects\Earth People Technology\EPT_Transfer_Test\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\EPT_Transfer_Test.EPT_Transfer_Test.resources
+C:\Jolly\Projects\Earth People Technology\EPT_Transfer_Test\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\EPT_Transfer_Test.Properties.Resources.resources
+C:\Jolly\Projects\Earth People Technology\EPT_Transfer_Test\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Jolly\Projects\Earth People Technology\EPT_Transfer_Test\EPT_Transfer_Test\EPT_Transfer_Test\obj\x86\Release\GenerateResource.write.1.tlog

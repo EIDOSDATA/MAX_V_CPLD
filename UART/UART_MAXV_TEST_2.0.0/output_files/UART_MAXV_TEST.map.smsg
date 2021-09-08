@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at Uart8Receiver.v(39): always construct contains both blocking and non-blocking assignments File: C:/Users/eidos/Desktop/UART_MAXV_TEST_1.0.0/src/Uart8Receiver.v Line: 39

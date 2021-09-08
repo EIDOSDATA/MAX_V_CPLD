@@ -1,0 +1,109 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/eidos/Desktop/UART_MAXV_TEST/simulation/modelsim
+vasync_receiver
+Z1 !s110 1610972238
+!i10b 1
+!s100 =f[OIcz`M6VlIR;X9YQ<N2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IhJS]KIZ7RR[5W@0GH=5an2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1610971300
+8C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_receiver.v
+FC:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_receiver.v
+!i122 2
+L0 13 101
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1610972238.000000
+!s107 C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_receiver.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src|C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_receiver.v|
+!i113 1
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work +incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src
+Z8 tCvgOpt 0
+vasync_transmitter
+R1
+!i10b 1
+!s100 VcJUoUK5J><@1aMcPM^O72
+R2
+IXFl0><iYSjFW5an53miCU1
+R3
+R0
+w1610971282
+8C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_transmitter.v
+FC:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_transmitter.v
+!i122 1
+L0 13 58
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_transmitter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src|C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_transmitter.v|
+!i113 1
+R6
+R7
+R8
+vBaudTickGen
+!s110 1610972239
+!i10b 1
+!s100 HPR039>l<P_^_[>DFmz^X0
+R2
+I7RGj3f@Mj@[XO:<V?4lUa2
+R3
+R0
+w1610971308
+8C:/Users/eidos/Desktop/UART_MAXV_TEST/src/BaudTickGen.v
+FC:/Users/eidos/Desktop/UART_MAXV_TEST/src/BaudTickGen.v
+!i122 3
+L0 1 20
+R4
+r1
+!s85 0
+31
+!s108 1610972239.000000
+!s107 C:/Users/eidos/Desktop/UART_MAXV_TEST/src/BaudTickGen.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src|C:/Users/eidos/Desktop/UART_MAXV_TEST/src/BaudTickGen.v|
+!i113 1
+R6
+R7
+R8
+n@baud@tick@gen
+vUART_MAXV_TEST
+R1
+!i10b 1
+!s100 f71K=:IPhRQLoz4CY04E_2
+R2
+IGE>;4ZVQ6bAOmf6n^l^cn0
+R3
+R0
+w1610970856
+8C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v
+FC:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v
+!i122 0
+L0 2 67
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src|C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v|
+!i113 1
+R6
+R7
+R8
+n@u@a@r@t_@m@a@x@v_@t@e@s@t

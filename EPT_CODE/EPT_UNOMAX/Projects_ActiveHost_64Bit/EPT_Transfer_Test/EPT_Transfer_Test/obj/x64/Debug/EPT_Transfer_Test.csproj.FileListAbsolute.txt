@@ -1,0 +1,9 @@
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x64\Debug\EPT_Transfer_Test.csprojAssemblyReference.cache
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x64\Debug\EPT_Transfer_Test.EPT_Transfer_Test.resources
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x64\Debug\EPT_Transfer_Test.Properties.Resources.resources
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x64\Debug\EPT_Transfer_Test.csproj.GenerateResource.cache
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x64\Debug\EPT_Transfer_Test.csproj.CoreCompileInputs.cache
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Transfer_Test\EPT_Transfer_Test\bin\x64\Debug\EPT_Transfer_Test.exe
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Transfer_Test\EPT_Transfer_Test\bin\x64\Debug\EPT_Transfer_Test.pdb
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x64\Debug\EPT_Transfer_Test.exe
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Transfer_Test\EPT_Transfer_Test\obj\x64\Debug\EPT_Transfer_Test.pdb

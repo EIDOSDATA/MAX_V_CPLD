@@ -1,0 +1,9 @@
+Analysis & Synthesis Status : Successful - Wed Jan 20 16:58:45 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : UART_MAXV_TEST
+Top-level Entity Name : UART_MAXV_TEST
+Family : MAX V
+Total logic elements : 237
+Total pins : 37
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

@@ -1,0 +1,8 @@
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Fast_LED_Blinky\EPT_Fast_LED_Blinky\obj\x64\Debug\EPT_Fast_LED_Blinky.csprojAssemblyReference.cache
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Fast_LED_Blinky\EPT_Fast_LED_Blinky\obj\x64\Debug\EPT_Fast_LED_Blinky.Properties.Resources.resources
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Fast_LED_Blinky\EPT_Fast_LED_Blinky\obj\x64\Debug\EPT_Fast_LED_Blinky.csproj.GenerateResource.cache
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Fast_LED_Blinky\EPT_Fast_LED_Blinky\obj\x64\Debug\EPT_Fast_LED_Blinky.csproj.CoreCompileInputs.cache
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Fast_LED_Blinky\EPT_Fast_LED_Blinky\bin\x64\Debug\EPT_Fast_LED_Blinky.exe
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Fast_LED_Blinky\EPT_Fast_LED_Blinky\bin\x64\Debug\EPT_Fast_LED_Blinky.pdb
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Fast_LED_Blinky\EPT_Fast_LED_Blinky\obj\x64\Debug\EPT_Fast_LED_Blinky.exe
+C:\Users\eidos\Desktop\UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD\Projects_ActiveHost_64Bit\EPT_Fast_LED_Blinky\EPT_Fast_LED_Blinky\obj\x64\Debug\EPT_Fast_LED_Blinky.pdb

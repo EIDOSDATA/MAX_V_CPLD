@@ -1,0 +1,157 @@
+# Reading pref.tcl
+# do UART_MAXV_TEST_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src {C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:17:18 on Jan 18,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src" C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v 
+# -- Compiling module UART_MAXV_TEST
+# 
+# Top level modules:
+# 	UART_MAXV_TEST
+# End time: 21:17:18 on Jan 18,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src {C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_transmitter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:17:18 on Jan 18,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src" C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_transmitter.v 
+# -- Compiling module async_transmitter
+# 
+# Top level modules:
+# 	async_transmitter
+# End time: 21:17:18 on Jan 18,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src {C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_receiver.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:17:18 on Jan 18,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src" C:/Users/eidos/Desktop/UART_MAXV_TEST/src/async_receiver.v 
+# -- Compiling module async_receiver
+# 
+# Top level modules:
+# 	async_receiver
+# End time: 21:17:18 on Jan 18,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src {C:/Users/eidos/Desktop/UART_MAXV_TEST/src/BaudTickGen.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:17:19 on Jan 18,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/eidos/Desktop/UART_MAXV_TEST/src" C:/Users/eidos/Desktop/UART_MAXV_TEST/src/BaudTickGen.v 
+# -- Compiling module BaudTickGen
+# 
+# Top level modules:
+# 	BaudTickGen
+# End time: 21:17:19 on Jan 18,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.UART_MAXV_TEST
+# vsim work.UART_MAXV_TEST 
+# Start time: 21:17:47 on Jan 18,2021
+# Loading work.UART_MAXV_TEST
+# Loading work.async_receiver
+# Loading work.BaudTickGen
+# Loading work.async_transmitter
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'RX'.  Expected 6, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /UART_MAXV_TEST/RX File: C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v Line: 56
+# ** Warning: (vsim-3722) C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v(56): [TFMPC] - Missing connection for port 'RxD_idle'.
+# ** Warning: (vsim-3722) C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v(56): [TFMPC] - Missing connection for port 'RxD_endofpacket'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'TX'.  Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /UART_MAXV_TEST/TX File: C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v Line: 63
+# ** Warning: (vsim-3722) C:/Users/eidos/Desktop/UART_MAXV_TEST/src/UART_MAXV_TEST_TOP.v(63): [TFMPC] - Missing connection for port 'TxD_busy'.
+add wave -position insertpoint sim:/UART_MAXV_TEST/*
+add wave -position insertpoint  \
+sim:/UART_MAXV_TEST/clk
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run -continue
+run
+run
+run
+run
+run
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/UART_MAXV_TEST/LED
+# Break key hit
+# Break key hit
+# Break key hit
+# Break key hit
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run -continue
+run -continue
+run -all
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 21:24:29 on Jan 18,2021, Elapsed time: 0:06:42
+# Errors: 0, Warnings: 5

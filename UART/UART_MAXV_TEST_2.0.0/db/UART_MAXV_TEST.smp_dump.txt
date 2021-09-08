@@ -1,0 +1,15 @@
+
+State Machine - |UART_MAXV_TEST|Uart8Transmitter:txInst|state
+Name state.101 state.100 state.011 state.010 state.001 
+state.001 0 0 0 0 0 
+state.010 0 0 0 1 1 
+state.011 0 0 1 0 1 
+state.100 0 1 0 0 1 
+state.101 1 0 0 0 1 
+
+State Machine - |UART_MAXV_TEST|Uart8Receiver:rxInst|state
+Name state.011 state.010 state.001 state.000 
+state.000 0 0 0 0 
+state.001 0 0 1 1 
+state.010 0 1 0 1 
+state.011 1 0 0 1 

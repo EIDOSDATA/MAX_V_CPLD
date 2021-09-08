@@ -1,0 +1,429 @@
+Analysis & Synthesis report for EPT_5M57_AP_U2_Top
+Mon Jan 04 18:53:40 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |EPT_5M57_AP_U2_Top|block_out_state
+  9. State Machine - |EPT_5M57_AP_U2_Top|block_in_state
+ 10. State Machine - |EPT_5M57_AP_U2_Top|transfer_to_host_state
+ 11. Logic Cells Representing Combinational Loops
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: Top-level Entity: |EPT_5M57_AP_U2_Top
+ 16. Parameter Settings for User Entity Instance: eptWireOR:wireOR
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Mon Jan 04 18:53:40 2021       ;
+; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name               ; EPT_5M57_AP_U2_Top                          ;
+; Top-level Entity Name       ; EPT_5M57_AP_U2_Top                          ;
+; Family                      ; MAX V                                       ;
+; Total logic elements        ; 626                                         ;
+; Total pins                  ; 48                                          ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 5M570ZT100C5       ;                    ;
+; Top-level entity name                                            ; EPT_5M57_AP_U2_Top ; EPT_5M57_AP_U2_Top ;
+; Family name                                                      ; MAX V              ; Cyclone IV GX      ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                    ;
++------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path   ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                        ; Library ;
++------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ../src/active_trigger.vqm          ; yes             ; User Verilog Quartus Mapping File  ; C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/active_trigger.vqm          ;         ;
+; ../src/active_transfer_library.vqm ; yes             ; User Verilog Quartus Mapping File  ; C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/active_transfer_library.vqm ;         ;
+; ../src/active_transfer.vqm         ; yes             ; User Verilog Quartus Mapping File  ; C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/active_transfer.vqm         ;         ;
+; ../src/active_block.vqm            ; yes             ; User Verilog Quartus Mapping File  ; C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/active_block.vqm            ;         ;
+; ../src/eptWireOR.v                 ; yes             ; User Verilog HDL File              ; C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/eptWireOR.v                 ;         ;
+; ../src/EPT_5M57_AP_U2_Top.v        ; yes             ; User Verilog HDL File              ; C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v        ;         ;
++------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 626   ;
+;     -- Combinational with no register       ; 304   ;
+;     -- Register only                        ; 124   ;
+;     -- Combinational with a register        ; 198   ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 224   ;
+;     -- 3 input functions                    ; 108   ;
+;     -- 2 input functions                    ; 161   ;
+;     -- 1 input functions                    ; 8     ;
+;     -- 0 input functions                    ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 550   ;
+;     -- arithmetic mode                      ; 76    ;
+;     -- qfbk mode                            ; 19    ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 77    ;
+;     -- asynchronous clear/load mode         ; 223   ;
+;                                             ;       ;
+; Total registers                             ; 322   ;
+; Total logic cells in carry chains           ; 87    ;
+; I/O pins                                    ; 48    ;
+; Maximum fan-out node                        ; aa[1] ;
+; Maximum fan-out                             ; 322   ;
+; Total fan-out                               ; 2511  ;
+; Average fan-out                             ; 3.73  ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                               ;
++-----------------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node                                ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                                                     ; Entity Name             ; Library Name ;
++-----------------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; |EPT_5M57_AP_U2_Top                                       ; 626 (207)   ; 322          ; 0          ; 48   ; 0            ; 304 (98)     ; 124 (72)          ; 198 (37)         ; 87 (0)          ; 19 (0)     ; |EPT_5M57_AP_U2_Top                                                                                                     ; EPT_5M57_AP_U2_Top      ; work         ;
+;    |active_block:BLOCK_TRANSFER_INST|                     ; 85 (85)     ; 52           ; 0          ; 0    ; 0            ; 33 (33)      ; 16 (16)           ; 36 (36)          ; 24 (24)         ; 0 (0)      ; |EPT_5M57_AP_U2_Top|active_block:BLOCK_TRANSFER_INST                                                                    ; active_block            ; work         ;
+;    |active_transfer:ACTIVE_TRANSFER_INST|                 ; 34 (34)     ; 21           ; 0          ; 0    ; 0            ; 13 (13)      ; 10 (10)           ; 11 (11)          ; 0 (0)           ; 1 (1)      ; |EPT_5M57_AP_U2_Top|active_transfer:ACTIVE_TRANSFER_INST                                                                ; active_transfer         ; work         ;
+;    |active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST| ; 240 (0)     ; 125          ; 0          ; 8    ; 0            ; 115 (0)      ; 26 (0)            ; 99 (0)           ; 55 (0)          ; 18 (0)     ; |EPT_5M57_AP_U2_Top|active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST                                                ; active_transfer_library ; work         ;
+;       |endpoint_registers:ENDPOINT_REGISTERS_INST|        ; 193 (193)   ; 103          ; 0          ; 0    ; 0            ; 90 (90)      ; 26 (26)           ; 77 (77)          ; 47 (47)         ; 18 (18)    ; |EPT_5M57_AP_U2_Top|active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|endpoint_registers:ENDPOINT_REGISTERS_INST     ; endpoint_registers      ;              ;
+;       |ft_245_state_machine:FT_245_STATE_MACHINE_INST|    ; 47 (47)     ; 22           ; 0          ; 0    ; 0            ; 25 (25)      ; 0 (0)             ; 22 (22)          ; 8 (8)           ; 0 (0)      ; |EPT_5M57_AP_U2_Top|active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST ; ft_245_state_machine    ;              ;
+;    |active_trigger:ACTIVE_TRIGGER_INST|                   ; 51 (51)     ; 15           ; 0          ; 0    ; 0            ; 36 (36)      ; 0 (0)             ; 15 (15)          ; 8 (8)           ; 0 (0)      ; |EPT_5M57_AP_U2_Top|active_trigger:ACTIVE_TRIGGER_INST                                                                  ; active_trigger          ; work         ;
+;    |eptWireOR:wireOR|                                     ; 9 (9)       ; 0            ; 0          ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |EPT_5M57_AP_U2_Top|eptWireOR:wireOR                                                                                    ; eptWireOR               ; work         ;
++-----------------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |EPT_5M57_AP_U2_Top|block_out_state                                                                                                                              ;
++----------------------------------------+----------------------------------------+-------------------------------------+------------------------------------+---------------------+
+; Name                                   ; block_out_state.BLOCK_OUT_TRANSMIT_END ; block_out_state.BLOCK_OUT_INCREMENT ; block_out_state.BLOCK_OUT_TRANSMIT ; block_out_state.000 ;
++----------------------------------------+----------------------------------------+-------------------------------------+------------------------------------+---------------------+
+; block_out_state.000                    ; 0                                      ; 0                                   ; 0                                  ; 0                   ;
+; block_out_state.BLOCK_OUT_TRANSMIT     ; 0                                      ; 0                                   ; 1                                  ; 1                   ;
+; block_out_state.BLOCK_OUT_INCREMENT    ; 0                                      ; 1                                   ; 0                                  ; 1                   ;
+; block_out_state.BLOCK_OUT_TRANSMIT_END ; 1                                      ; 0                                   ; 0                                  ; 1                   ;
++----------------------------------------+----------------------------------------+-------------------------------------+------------------------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |EPT_5M57_AP_U2_Top|block_in_state                                                                                                                                                       ;
++------------------------------------+-----------------------------------+------------------------------------+------------------------------------+--------------------+----------------------------------+
+; Name                               ; block_in_state.BLOCK_IN_INCREMENT ; block_in_state.BLOCK_IN_RECEIVE_LO ; block_in_state.BLOCK_IN_RECEIVE_HI ; block_in_state.000 ; block_in_state.BLOCK_IN_COMPLETE ;
++------------------------------------+-----------------------------------+------------------------------------+------------------------------------+--------------------+----------------------------------+
+; block_in_state.000                 ; 0                                 ; 0                                  ; 0                                  ; 0                  ; 0                                ;
+; block_in_state.BLOCK_IN_RECEIVE_HI ; 0                                 ; 0                                  ; 1                                  ; 1                  ; 0                                ;
+; block_in_state.BLOCK_IN_RECEIVE_LO ; 0                                 ; 1                                  ; 0                                  ; 1                  ; 0                                ;
+; block_in_state.BLOCK_IN_INCREMENT  ; 1                                 ; 0                                  ; 0                                  ; 1                  ; 0                                ;
+; block_in_state.BLOCK_IN_COMPLETE   ; 0                                 ; 0                                  ; 0                                  ; 1                  ; 1                                ;
++------------------------------------+-----------------------------------+------------------------------------+------------------------------------+--------------------+----------------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |EPT_5M57_AP_U2_Top|transfer_to_host_state                                                                                                                                                        ;
++--------------------------------------------------------+-------------------------------------------+--------------------------------------------------------+-----------------------------------------------------+
+; Name                                                   ; transfer_to_host_state.TRANSFER_HOST_IDLE ; transfer_to_host_state.TRANSFER_HOST_LOOPBACK_COMPLETE ; transfer_to_host_state.TRANSFER_HOST_LOOPBACK_START ;
++--------------------------------------------------------+-------------------------------------------+--------------------------------------------------------+-----------------------------------------------------+
+; transfer_to_host_state.TRANSFER_HOST_IDLE              ; 0                                         ; 0                                                      ; 0                                                   ;
+; transfer_to_host_state.TRANSFER_HOST_LOOPBACK_START    ; 1                                         ; 0                                                      ; 1                                                   ;
+; transfer_to_host_state.TRANSFER_HOST_LOOPBACK_COMPLETE ; 1                                         ; 1                                                      ; 0                                                   ;
++--------------------------------------------------------+-------------------------------------------+--------------------------------------------------------+-----------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops                                                                                    ;
++----------------------------------------------------------------------------------------------------------------------------+----+
+; Logic Cell Name                                                                                                            ;    ;
++----------------------------------------------------------------------------------------------------------------------------+----+
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|USB_RD_N               ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|USB_REGISTER_DECODE[4] ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|USB_REGISTER_DECODE[0] ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|USB_REGISTER_DECODE[1] ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|USB_REGISTER_DECODE[2] ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|USB_REGISTER_DECODE[3] ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|DATA_BYTE_READY        ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|USB_REGISTER_DECODE[7] ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|USB_REGISTER_DECODE[6] ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|ft_245_state_machine:FT_245_STATE_MACHINE_INST|USB_REGISTER_DECODE[5] ;    ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|endpoint_registers:ENDPOINT_REGISTERS_INST|transfer_busy              ;    ;
+; Number of logic cells representing combinational loops                                                                     ; 11 ;
++----------------------------------------------------------------------------------------------------------------------------+----+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                              ;
++------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                                          ; Reason for Removal                     ;
++------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; LED[3]~reg0                                                                                                            ; Stuck at GND due to stuck port data_in ;
+; LED[2]~reg0                                                                                                            ; Stuck at GND due to stuck port data_in ;
+; LED[1]~reg0                                                                                                            ; Stuck at GND due to stuck port data_in ;
+; LED[0]~reg0                                                                                                            ; Stuck at GND due to stuck port data_in ;
+; active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST|endpoint_registers:ENDPOINT_REGISTERS_INST|address_from_device[0] ; Stuck at GND due to stuck port reg_out ;
+; block_out_state~8                                                                                                      ; Lost fanout                            ;
+; block_out_state~9                                                                                                      ; Lost fanout                            ;
+; block_out_state~10                                                                                                     ; Lost fanout                            ;
+; block_in_state~9                                                                                                       ; Lost fanout                            ;
+; block_in_state~10                                                                                                      ; Lost fanout                            ;
+; transfer_to_host_state.TRANSFER_HOST_LOOPBACK_COMPLETE                                                                 ; Merged with transfer_out_reg           ;
+; Total Number of Removed Registers = 11                                                                                 ;                                        ;
++------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 322   ;
+; Number of registers using Synchronous Clear  ; 26    ;
+; Number of registers using Synchronous Load   ; 25    ;
+; Number of registers using Asynchronous Clear ; 223   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 197   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |EPT_5M57_AP_U2_Top|block_out_state ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |EPT_5M57_AP_U2_Top|Selector28      ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; No         ; |EPT_5M57_AP_U2_Top|Selector7       ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |EPT_5M57_AP_U2_Top|Selector8       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |EPT_5M57_AP_U2_Top ;
++---------------------------------+-------+------------------------------------------+
+; Parameter Name                  ; Value ; Type                                     ;
++---------------------------------+-------+------------------------------------------+
+; TRANSFER_HOST_IDLE              ; 0     ; Signed Integer                           ;
+; TRANSFER_HOST_LOOPBACK_START    ; 1     ; Signed Integer                           ;
+; TRANSFER_HOST_LOOPBACK_COMPLETE ; 2     ; Signed Integer                           ;
+; BLOCK_IN_IDLE                   ; 000   ; Unsigned Binary                          ;
+; BLOCK_IN_RECEIVE_HI             ; 001   ; Unsigned Binary                          ;
+; BLOCK_IN_RECEIVE_LO             ; 010   ; Unsigned Binary                          ;
+; BLOCK_IN_INCREMENT              ; 011   ; Unsigned Binary                          ;
+; BLOCK_IN_COMPLETE               ; 100   ; Unsigned Binary                          ;
+; BLOCK_OUT_IDLE                  ; 000   ; Unsigned Binary                          ;
+; BLOCK_OUT_TRANSMIT              ; 001   ; Unsigned Binary                          ;
+; BLOCK_OUT_INCREMENT             ; 010   ; Unsigned Binary                          ;
+; BLOCK_OUT_TRANSMIT_END          ; 011   ; Unsigned Binary                          ;
++---------------------------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: eptWireOR:wireOR ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; N              ; 3     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Mon Jan 04 18:53:27 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EPT_5M57_AP_U2_Top -c EPT_5M57_AP_U2_Top
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/eidos/desktop/unomax_cpld_system_project_2.7_dvd/projects_hdl/ept_5m57_ap_u2_transfer_test/src/active_trigger.vqm
+    Info (12023): Found entity 1: active_trigger File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/active_trigger.vqm Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file /users/eidos/desktop/unomax_cpld_system_project_2.7_dvd/projects_hdl/ept_5m57_ap_u2_transfer_test/src/active_transfer_library.vqm
+    Info (12023): Found entity 1: active_transfer_library File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/active_transfer_library.vqm Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file /users/eidos/desktop/unomax_cpld_system_project_2.7_dvd/projects_hdl/ept_5m57_ap_u2_transfer_test/src/active_transfer.vqm
+    Info (12023): Found entity 1: active_transfer File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/active_transfer.vqm Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file /users/eidos/desktop/unomax_cpld_system_project_2.7_dvd/projects_hdl/ept_5m57_ap_u2_transfer_test/src/active_block.vqm
+    Info (12023): Found entity 1: active_block File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/active_block.vqm Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file /users/eidos/desktop/unomax_cpld_system_project_2.7_dvd/projects_hdl/ept_5m57_ap_u2_transfer_test/src/eptwireor.v
+    Info (12023): Found entity 1: eptWireOR File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/eptWireOR.v Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file /users/eidos/desktop/unomax_cpld_system_project_2.7_dvd/projects_hdl/ept_5m57_ap_u2_transfer_test/src/ept_5m57_ap_u2_top.v
+    Info (12023): Found entity 1: EPT_5M57_AP_U2_Top File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 38
+Info (12127): Elaborating entity "EPT_5M57_AP_U2_Top" for the top level hierarchy
+Info (10264): Verilog HDL Case Statement information at EPT_5M57_AP_U2_Top.v(191): all case item expressions in this case statement are onehot File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 191
+Warning (10235): Verilog HDL Always Construct warning at EPT_5M57_AP_U2_Top.v(213): variable "RST" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 213
+Info (12128): Elaborating entity "active_transfer_library" for hierarchy "active_transfer_library:ACTIVE_TRANSFER_LIBRARY_INST" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 400
+Info (12128): Elaborating entity "eptWireOR" for hierarchy "eptWireOR:wireOR" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 406
+Info (12128): Elaborating entity "active_trigger" for hierarchy "active_trigger:ACTIVE_TRIGGER_INST" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 417
+Info (12128): Elaborating entity "active_transfer" for hierarchy "active_transfer:ACTIVE_TRANSFER_INST" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 433
+Info (12128): Elaborating entity "active_block" for hierarchy "active_block:BLOCK_TRANSFER_INST" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 456
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "bc_out[0]" is stuck at GND File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 43
+    Warning (13410): Pin "TR_OE_1" is stuck at VCC File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 54
+    Warning (13410): Pin "TR_OE_2" is stuck at VCC File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 57
+    Warning (13410): Pin "TR_OE_3" is stuck at VCC File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 60
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "active_transfer:ACTIVE_TRANSFER_INST|uc_out~9" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/active_transfer.vqm Line: 432
+Warning (21074): Design contains 24 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "LB_SER[0]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 46
+    Warning (15610): No output dependent on input pin "LB_SER[1]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 46
+    Warning (15610): No output dependent on input pin "LB_AD[0]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 47
+    Warning (15610): No output dependent on input pin "LB_AD[1]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 47
+    Warning (15610): No output dependent on input pin "LB_AD[2]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 47
+    Warning (15610): No output dependent on input pin "LB_AD[3]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 47
+    Warning (15610): No output dependent on input pin "LB_AD[4]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 47
+    Warning (15610): No output dependent on input pin "LB_AD[5]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 47
+    Warning (15610): No output dependent on input pin "LB_IOH[0]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 48
+    Warning (15610): No output dependent on input pin "LB_IOH[1]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 48
+    Warning (15610): No output dependent on input pin "LB_IOH[2]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 48
+    Warning (15610): No output dependent on input pin "LB_IOH[3]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 48
+    Warning (15610): No output dependent on input pin "LB_IOH[4]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 48
+    Warning (15610): No output dependent on input pin "LB_IOH[5]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 48
+    Warning (15610): No output dependent on input pin "LB_IOH[6]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 48
+    Warning (15610): No output dependent on input pin "LB_IOH[7]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 48
+    Warning (15610): No output dependent on input pin "LB_IOL[0]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 49
+    Warning (15610): No output dependent on input pin "LB_IOL[1]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 49
+    Warning (15610): No output dependent on input pin "LB_IOL[2]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 49
+    Warning (15610): No output dependent on input pin "LB_IOL[3]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 49
+    Warning (15610): No output dependent on input pin "LB_IOL[4]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 49
+    Warning (15610): No output dependent on input pin "LB_IOL[5]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 49
+    Warning (15610): No output dependent on input pin "LB_IOL[6]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 49
+    Warning (15610): No output dependent on input pin "LB_IOL[7]" File: C:/Users/eidos/Desktop/UNOMAX_CPLD_SYSTEM_PROJECT_2.7_DVD/Projects_HDL/EPT_5M57_AP_U2_Transfer_Test/src/EPT_5M57_AP_U2_Top.v Line: 49
+Info (21057): Implemented 674 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 30 input pins
+    Info (21059): Implemented 10 output pins
+    Info (21060): Implemented 8 bidirectional pins
+    Info (21061): Implemented 626 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
+    Info: Peak virtual memory: 4704 megabytes
+    Info: Processing ended: Mon Jan 04 18:53:40 2021
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:28
+
+

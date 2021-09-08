@@ -1,0 +1,11 @@
+Fitter Status : Successful - Wed Jan 20 16:58:49 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : UART_MAXV_TEST
+Top-level Entity Name : UART_MAXV_TEST
+Family : MAX V
+Device : 5M570ZT100C5
+Timing Models : Final
+Total logic elements : 223 / 570 ( 39 % )
+Total pins : 37 / 74 ( 50 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

@@ -1,0 +1,1159 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Threading;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+
+namespace EPT_Data_Acquistion
+{
+    public partial class EPT_Data_Acquistion : Form
+    {
+        int[] StorageArray = new int[50000];
+
+        public EPT_Data_Acquistion()
+        {
+            InitializeComponent();
+
+
+            for (int i = 0; i < EPTTransmitDevice.Length; ++i)
+            {
+                EPTTransmitDevice[i] = new Transfer();
+            }
+
+            InitializeStorageArray();
+
+            // reduce flicker
+
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
+        }
+        //Index to store device selection
+        Int32 device_index;
+
+        //Create a Receive object of the Transfer Class.
+        Transfer EPTReceiveData = new Transfer();
+
+        //Create an array of the Transfer Class for device
+        Transfer[] EPTTransmitDevice = new Transfer[8];
+
+        //Parameters for EPT Receive object
+        public const byte TRIGGER_OUT_COMMAND = 0x1;
+        public const byte TRANSFER_OUT_COMMAND = 0x2;
+        public const byte BLOCK_OUT_COMMAND = 0x4;
+
+        //Parameters for EPT Receive object
+        public const byte TRANSFER_OUT_ADDRESS_1 = 0x1;
+        public const byte TRANSFER_OUT_ADDRESS_2 = 0x2;
+        public const byte TRANSFER_OUT_ADDRESS_3 = 0x3;
+        public const byte TRANSFER_OUT_ADDRESS_4 = 0x4;
+        public const byte TRANSFER_OUT_ADDRESS_5 = 0x5;
+        public const byte TRANSFER_OUT_ADDRESS_6 = 0x6;
+
+        //Address variables to keep track of which Transfer
+        //group should store the Display byte from the EPT-570
+        public bool DisplayAddress_1 = true;
+        public bool DisplayAddress_2 = false;
+        public bool DisplayAddress_3 = false;
+        public bool DisplayAddress_4 = false;
+        public bool DisplayAddress_5 = false;
+        public bool DisplayAddress_6 = false;
+
+        //Channel Select flags to determine which channels
+        //are in the ADC scan
+        public bool Channel1_Select = false;
+        public bool Channel2_Select = false;
+        public bool Channel3_Select = false;
+        public bool Channel4_Select = false;
+        public bool Channel5_Select = false;
+        public bool Channel6_Select = false;
+
+
+        //Register to keep track of which byte (Upper or Lower)
+        //should be assembled into the AnalogValue
+        public bool FirstDisplayByte = true;
+
+        //Address variables to store history of the addresses
+        //from the EPT Receive object
+        public int FirstPreviousActualAddr = 0;
+        public int SecondPreviousActualAddr = 0;
+
+        //Address variables to store history of the addresses
+        //determined by the case statements 
+        public int FirstPreviousCalcAddr = 0;
+        public int SecondPreviousCalcAddr = 0;
+
+        //Variable to store the 10 bit Analog Value
+        public int AnalogValue = 0;
+        public float FloatValue = 0;
+
+
+        //Add Oscilloscope values  here
+        //Parameters for Voltage Reference Buttons
+        public const int SELECT_VREF1 = 1;
+        public const int SELECT_VREF2 = 2;
+        public const int SELECT_VREF3 = 3;
+
+        //Parameters for Voltage Reference Buttons
+        public const int SELECT_TRIG1 = 1;
+        public const int SELECT_TRIG2 = 2;
+        public const int SELECT_TRIG3 = 3;
+
+        //Parameters for the Fifo hold off
+        public const int REFRESH_TIMEOUT = 150;
+        public const int FIFO_HOLD_TIME = 1200;
+
+        //Buffer to hold bytes transferred from the EPT Serial Graph Tool
+        public int[][] ScopeBuffer = new int[8][];
+        public int[] EPTReceiveIndex = new int[8];
+        public int OuterDimension = 0;
+
+        // put the a/d readings into repeat mode for 450 readings
+        int n = 0;
+
+        //ScopeBuffer Channel Select
+        public int ScopeBufferChannelSelect = 0;
+
+        //Flag to indicate if the ScopeBuffer has collected the first
+        //450 data points
+        public bool EPTReceiveIndexInitFlag = false;
+
+        //ScopeBuffer index for the graph section
+        public int ScopeIndex = 0;
+
+        //Offset value to change the Horizontal position
+        public int IndexOffset = 0;
+
+        //Flag to prevent BlockOutReceive or TriggerOutRecieve from writing
+        // to the ScopeBuffer or initiating RefreshScope() while RefreshScope()
+        //is in process
+        public bool RefreshBusy = false;
+
+        private bool StorageOn = false;
+
+        //Prescalar value
+        public char[] PreScalarValue = new char[10];
+
+        //Voltage Reference value
+        public char VoltageReference = '1';
+
+
+        //Voltage Reference value
+        public char TriggerEvent = '1';
+
+        //FifoHold register
+        public bool FifoHold = false;
+        public bool SetFifoHoldEnable = false;
+
+        //Prescalar value
+        public char[] TriggerThreshold = new char[10];
+
+        //ScopeOn register to allow graph to be turned on/off
+        bool ScopeOn = false;
+
+        //Scaling to be used on the incoming data
+        public int BitScale = 1024;
+
+        //Selected Channel control, used to get the value from the trackbars
+        //and place them into the channel values
+        public int ChannelSelectControl = 0;
+
+        //Array of active channels, used to determine if a channel
+        //memory block has been set up
+        public bool[] ActiveChannels = new bool[8];
+
+
+
+        //Registers to Determine if the incoming data is two bytes. Determine
+        //whether it is the upper byte or lower byte.
+        public bool TwoByteData = false;
+        public bool UpperByte = true;
+
+        //StreamWrite File
+        //StreamWriter writer;
+
+        //Save File string
+        public string Saved_File;
+        public string previousPath = "";
+
+        //Save Data To File Flag
+        public bool SaveDataToFile = false;
+        //Voltage Scale registers for each channel
+        //Voltage Scale Factor
+        public int VoltageScaleValue = 5;
+        public int VScaleChannel_1 = 5;
+        public int VScaleChannel_2 = 5;
+        public int VScaleChannel_3 = 5;
+        public int VScaleChannel_4 = 5;
+        public int VScaleChannel_5 = 5;
+        public int VScaleChannel_6 = 5;
+        public int VScaleChannel_7 = 5;
+        public int VScaleChannel_8 = 5;
+
+        //Vertical Scale registers for each channel
+        public int VerticalScaleValue = 0;
+        public int VerticalScale_1 = 0;
+        public int VerticalScale_2 = 0;
+        public int VerticalScale_3 = 0;
+        public int VerticalScale_4 = 0;
+        public int VerticalScale_5 = 0;
+        public int VerticalScale_6 = 0;
+        public int VerticalScale_7 = 0;
+        public int VerticalScale_8 = 0;
+
+        //Horizontal Position registers
+        public int HorizontalScaleValue = 0;
+        public int HorizontalScale_1 = 0;
+        public int HorizontalScale_2 = 0;
+        public int HorizontalScale_3 = 0;
+        public int HorizontalScale_4 = 0;
+        public int HorizontalScale_5 = 0;
+        public int HorizontalScale_6 = 0;
+        public int HorizontalScale_7 = 0;
+        public int HorizontalScale_8 = 0;
+
+        //Time Scale registers
+        public int TimeScaleValue = 1;
+        public int TimeScale_1 = 1;
+        public int TimeScale_2 = 1;
+        public int TimeScale_3 = 1;
+        public int TimeScale_4 = 1;
+        public int TimeScale_5 = 1;
+        public int TimeScale_6 = 1;
+        public int TimeScale_7 = 1;
+        public int TimeScale_8 = 1;
+
+        //Horizontal Fast Shift Registers
+        public int HorizontalFastShift = 0;
+        public int HorizontalFastShift_1 = 0;
+        public int HorizontalFastShift_2 = 0;
+        public int HorizontalFastShift_3 = 0;
+        public int HorizontalFastShift_4 = 0;
+        public int HorizontalFastShift_5 = 0;
+        public int HorizontalFastShift_6 = 0;
+        public int HorizontalFastShift_7 = 0;
+        public int HorizontalFastShift_8 = 0;
+
+        //Labels to add
+        Label Channel_1_VerticalLabel = null;
+        Label Channel_2_VerticalLabel = null;
+        Label Channel_3_VerticalLabel = null;
+        Label Channel_4_VerticalLabel = null;
+        Label Channel_5_VerticalLabel = null;
+        Label Channel_6_VerticalLabel = null;
+        Label Channel_7_VerticalLabel = null;
+        Label Channel_8_VerticalLabel = null;
+
+        //Voltage Scale Labels
+        public float VoltageScaleLabel_P6;
+        public float VoltageScaleLabel_P5;
+        public float VoltageScaleLabel_P4;
+        public float VoltageScaleLabel_P3;
+        public float VoltageScaleLabel_P2;
+        public float VoltageScaleLabel_P1;
+        public float VoltageScaleLabel_M1;
+        public float VoltageScaleLabel_M2;
+        public float VoltageScaleLabel_M3;
+        public float VoltageScaleLabel_M4;
+
+        //Voltage Scale Factor
+        public float VoltageScaleFactor = 1;
+
+        // Main object loader
+        private void EPT_Data_Acquistion_Load(object sender, System.EventArgs e)
+        {
+            // Call the List Devices function
+            ListDevices();
+            lblDeviceConnected.Text = "";
+
+            //EPT_AH_SetDebugMode(1);
+        }
+
+
+        private void SetButtonEnables()
+        {
+            btnOpenDevice.Enabled = true;
+            btnCloseDevice.Enabled = false;
+        }
+
+
+        private void btnOpenDevice_Click(object sender, EventArgs e)
+        {
+            //Open the Device
+            OpenDevice();
+            lblDeviceConnected.Text = "Device Connected";
+            btnOpenDevice.Enabled = false;
+            btnCloseDevice.Enabled = true;
+        }
+
+        private void btnCloseDevice_Click(object sender, EventArgs e)
+        {
+            EPT_AH_CloseDeviceByIndex(device_index);
+            btnOpenDevice.Enabled = true;
+            btnCloseDevice.Enabled = false;
+
+            lblDeviceConnected.Text = "";
+
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            EPT_AH_CloseDeviceByIndex(device_index);
+            btnOpenDevice.Enabled = true;
+            btnCloseDevice.Enabled = false;
+
+            lblDeviceConnected.Text = "";
+            Application.Exit();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            EPT_AH_CloseDeviceByIndex(device_index);
+            btnOpenDevice.Enabled = true;
+            btnCloseDevice.Enabled = false;
+
+            lblDeviceConnected.Text = "";
+            Application.Exit();
+        }
+
+        //Add Oscilloscope Graph Code here
+
+        void InitializeStorageArray()
+        {
+            for (int i = 0; i < StorageArray.Length; i++)
+            {
+                StorageArray[i] = 0;
+            }
+
+            //Initialize the first channel of the Serial Graph Tool
+            ActiveChannels[0] = true;
+            ScopeBuffer[0] = new int[50000];
+            cmbChannelSelect.Items.Add((ScopeBufferChannelSelect + 1));
+            Channel_1_VerticalLabel = new Label();
+            Channel_1_VerticalLabel.ForeColor = Color.DarkGreen;
+            Channel_1_VerticalLabel.Location = new Point(480, 250);
+            Channel_1_VerticalLabel.Font = new Font("Arial", 8);
+            Channel_1_VerticalLabel.Text = "--Ch 1";
+            this.Controls.Add(Channel_1_VerticalLabel);
+
+            ScopeBuffer[1] = new int[50000];
+            ScopeBuffer[2] = new int[50000];
+            ScopeBuffer[3] = new int[50000];
+
+        }
+
+        Random r = new Random();
+
+        private void RefreshScope(Graphics g)
+        {
+            int xmax = 450; // number of sample points
+            int ymax = 256;  // maximum y value
+            int xlast = -1;
+            int ylast = 0;
+            int xDraw = 0;
+            int yDraw = 0;
+
+            int nToggleColor = 0;
+            int TimeScaleIn = 0;
+
+            // put the a/d readings into repeat mode for 450 readings
+            //int n = 0;
+
+            RefreshBusy = true;
+
+            try
+            {
+                for (int OuterDimension = 0; OuterDimension < 8; OuterDimension++)
+                {
+                    xlast = -1;
+                    ylast = 0;
+                    xDraw = 0;
+                    yDraw = 0;
+                    TimeScaleIn = 0;
+                    //n = 0;
+
+                    switch (OuterDimension)
+                    {
+                        case 0:
+                            VoltageScaleValue = VScaleChannel_1;
+                            VerticalScaleValue = VerticalScale_1;
+                            HorizontalScaleValue = HorizontalScale_1;
+                            TimeScaleValue = TimeScale_1;
+                            IndexOffset = HorizontalScale_1 + HorizontalFastShift_1;
+                            break;
+                        case 1:
+                            VoltageScaleValue = VScaleChannel_2;
+                            VerticalScaleValue = VerticalScale_2;
+                            HorizontalScaleValue = HorizontalScale_2;
+                            TimeScaleValue = TimeScale_2;
+                            IndexOffset = HorizontalScale_2 + HorizontalFastShift_2;
+                            break;
+                        case 2:
+                            VoltageScaleValue = VScaleChannel_3;
+                            VerticalScaleValue = VerticalScale_3;
+                            HorizontalScaleValue = HorizontalScale_3;
+                            TimeScaleValue = TimeScale_3;
+                            IndexOffset = HorizontalScale_3 + HorizontalFastShift_3;
+                            break;
+                        case 3:
+                            VoltageScaleValue = VScaleChannel_4;
+                            VerticalScaleValue = VerticalScale_4;
+                            HorizontalScaleValue = HorizontalScale_4;
+                            TimeScaleValue = TimeScale_4;
+                            IndexOffset = HorizontalScale_4 + HorizontalFastShift_4;
+                            break;
+                        case 4:
+                            VoltageScaleValue = VScaleChannel_5;
+                            VerticalScaleValue = VerticalScale_5;
+                            HorizontalScaleValue = HorizontalScale_5;
+                            TimeScaleValue = TimeScale_5;
+                            IndexOffset = HorizontalScale_5 + HorizontalFastShift_5;
+                            break;
+                        case 5:
+                            VoltageScaleValue = VScaleChannel_6;
+                            VerticalScaleValue = VerticalScale_6;
+                            HorizontalScaleValue = HorizontalScale_6;
+                            TimeScaleValue = TimeScale_6;
+                            IndexOffset = HorizontalScale_6 + HorizontalFastShift_6;
+                            break;
+                        case 6:
+                            VoltageScaleValue = VScaleChannel_7;
+                            VerticalScaleValue = VerticalScale_7;
+                            HorizontalScaleValue = HorizontalScale_7;
+                            TimeScaleValue = TimeScale_7;
+                            IndexOffset = HorizontalScale_7 + HorizontalFastShift_7;
+                            break;
+                        case 7:
+                            VoltageScaleValue = VScaleChannel_8;
+                            VerticalScaleValue = VerticalScale_8;
+                            HorizontalScaleValue = HorizontalScale_8;
+                            TimeScaleValue = TimeScale_8;
+                            IndexOffset = HorizontalScale_8 + HorizontalFastShift_8;
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                    ScopeIndex = GetScopeBufferIndex(OuterDimension, IndexOffset);
+                    //if (ScopeBuffer[OuterDimension] != null)
+                    if (ActiveChannels[OuterDimension])
+                    {
+                        // read each value from the buffer and plot the sample on the scope		
+                        for (int xpos = 0; xpos < xmax; xpos++)
+                        {
+                            if (StorageOn)
+                                n = StorageArray[xpos];
+                            else
+                                StorageArray[xpos] = n;
+
+                            // n between 0 and 1023
+                            //System.Single y = 0;
+                            //System.Single volt = 0;
+                            int yint = 0;
+
+
+                            //Scale the data words to 16 bits
+                            double Data;
+                            Data = (double)((n * 450) / BitScale);
+
+                            n = (int)Data;
+                            ymax = 256;
+
+                            // scale the voltage according to the voltage scale control
+
+                            //if (SaveDataToFile)
+                            //    writer.Write("Channel {0} Pre-Calc Value {1:0} \n",OuterDimension, n);
+
+                            if (VoltageScaleValue >= 5)
+                            {
+                                yint = (int)(n / (VoltageScaleValue - 4));
+                            }
+                            else
+                            {
+                                yint = (int)(n * (6 - VoltageScaleValue));
+                            }
+
+                            // offset the voltage based on the y position dial
+                            yint -= -(VerticalScaleValue);
+
+                            // place the y reading into the correct coordinate system
+                            //    by subtracting from the maximum value
+                            yDraw = ymax - yint;
+
+                            // don't draw the first sample point, use it as
+                            // a starting sample point
+                            if (xlast != -1)
+                            {
+                                // scale the x-value based on the TimeScale control
+                                // translate the x-position by the x-position control
+                                //xDraw = xpos;
+                                //xDraw = xpos * (int)this.TimeScaleControl.Value + ((int)trkTimeScaleControl.Value * (int)TimeScaleControl.Value * 45);
+                                //xDraw = xpos * (int)this.trkTimeScale.Value + (HorizontalScaleValue * (int)trkTimeScale.Value * 45);
+                                //xDraw = xpos * TimeScaleValue + (HorizontalScaleValue * TimeScaleValue * 5);
+                                if (TimeScaleValue == 1)
+                                    xDraw = xpos * TimeScaleValue;
+                                else if (TimeScaleValue > 1)
+                                    xDraw = xpos * (TimeScaleValue * 2);
+                                else 
+                                    xDraw = xpos;
+
+                                // Draw the scaled sample point by connecting
+                                // the previous scaled sample point to the current
+                                // scaled sample point
+                                if (xDraw < kScopeWidth)
+                                {
+                                    /*if ((nToggleColor % 2 == 0) || (ShowSamplesOn == false))
+                                        g.DrawLine(Pens.LawnGreen, xlast, ylast, xDraw, yDraw);
+                                    else
+                                        g.DrawLine(Pens.Red, xlast, ylast, xDraw, yint);
+                                    */
+                                    switch (OuterDimension)
+                                    {
+                                        case 0:
+                                            g.DrawLine(Pens.LawnGreen, xlast, ylast, xDraw, yDraw);
+                                            break;
+                                        case 1:
+                                            g.DrawLine(Pens.Red, xlast, ylast, xDraw, yDraw);
+                                            break;
+                                        case 2:
+                                            g.DrawLine(Pens.Blue, xlast, ylast, xDraw, yDraw);
+                                            break;
+                                        case 3:
+                                            g.DrawLine(Pens.Orange, xlast, ylast, xDraw, yDraw);
+                                            break;
+                                        case 4:
+                                            g.DrawLine(Pens.Red, xlast, ylast, xDraw, yDraw);
+                                            break;
+                                        case 5:
+                                            g.DrawLine(Pens.DarkOliveGreen, xlast, ylast, xDraw, yDraw);
+                                            break;
+                                        case 6:
+                                            g.DrawLine(Pens.DimGray, xlast, ylast, xDraw, yDraw);
+                                            break;
+                                        case 7:
+                                            g.DrawLine(Pens.LightCyan, xlast, ylast, xDraw, yDraw);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                            }
+
+                            // remember the current sample point to allow for connecting
+                            // the next sample point
+                            xlast = xDraw;
+                            ylast = yDraw;
+
+                            nToggleColor++;
+
+                            // read the next a/d value from the buffer
+                            if (xpos <= xmax)
+                            {
+                                /*
+                                if (ScopeIndex < 49999)
+                                    n = ScopeBuffer[OuterDimension][ScopeIndex++];
+                                else
+                                {
+                                    ScopeIndex = 0;
+                                    n = ScopeBuffer[OuterDimension][ScopeIndex++];
+                                }
+                                */
+
+                                if (ScopeIndex > 49998)
+                                    ScopeIndex = 0;
+
+                                if (TimeScaleValue < 0)
+                                {
+                                    if (ScopeIndex + (TimeScaleIn * Math.Abs(TimeScaleValue)) < 49999)
+                                        n = ScopeBuffer[OuterDimension][ScopeIndex++ + (TimeScaleIn++ * Math.Abs(TimeScaleValue))];
+                                    else
+                                        n = ScopeBuffer[OuterDimension][(TimeScaleIn++ * Math.Abs(TimeScaleValue))];
+                                }
+                                else
+                                    n = ScopeBuffer[OuterDimension][ScopeIndex++];
+                            }
+                        }
+                    }
+                }
+                //RefreshBusy is reset to allow the samples to start filling
+                //the ScopeBuffer
+                RefreshBusy = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("RefreshScope Error:" + ex);
+            }
+        }
+
+        const int kScopeWidth = 450;
+        const int kScopeHeight = 450;
+        Rectangle scopeRect = new Rectangle(0, 0, kScopeWidth, kScopeHeight);
+
+        private void DrawGrid(Graphics g)
+        {
+            // Draw the Whole screen black
+            g.FillRectangle(Brushes.Black, scopeRect);
+
+            const int kpadding = 0;
+            const int tickheight = 4;
+            const int tickheightLarge = 8;
+            // draw the Grid Lines
+            for (int i = 0; i < 450; i += 50)
+            {
+                // draw horizontal line
+                g.DrawLine(Pens.DarkGray, 0, i + kpadding, kScopeWidth, i + kpadding);
+
+                // draw vertical line
+                g.DrawLine(Pens.DarkGray, i + kpadding, 0, i + kpadding, kScopeHeight);
+
+                // draw ticks on each line
+                if (i == 200)
+                {
+                    for (int j = 0; j < kScopeWidth; j += 5)
+                    {
+                        if (j % 25 != 0)
+                        {
+                            g.DrawLine(Pens.White, j, (i - tickheight / 2),
+                                j, (i + tickheight / 2));
+
+                            g.DrawLine(Pens.White, (i - tickheight / 2), j,
+                                (i + tickheight / 2), j);
+                        }
+                        else
+                        {
+                            g.DrawLine(Pens.White, j, (i - tickheightLarge / 2) + kpadding,
+                                j, (i + tickheightLarge / 2) + kpadding);
+
+                            g.DrawLine(Pens.White, (i - tickheightLarge / 2), j,
+                                (i + tickheightLarge / 2), j);
+                        }
+                    }
+                }
+            }
+
+
+            // Draw Scope from a to d
+            //if (ScopeOn)
+                this.RefreshScope(g);
+        }
+
+
+        private void Form1_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            try
+            {
+                // Draw the scope Grid
+                DrawGrid(g);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Form1_Paint Error:" + ex);
+            }
+
+        }
+
+        private void EPTParseReceive()
+        {
+            switch (EPTReceiveData.Command)
+            {
+                // This is a data block transfer command
+                case BLOCK_OUT_COMMAND:
+                    BLockOutReceive();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+        // Parse incoming block transfer
+        public void BLockOutReceive()
+        {
+            //Index to track the byte in the incoming block
+            int BlockReceiveIndex = 0;
+
+            //EPTTransmitDevice[EPTReceiveData.Address].TransferPending = false;
+            foreach (byte b in EPTReceiveData.cBlockBuf)
+            {
+                switch (BlockReceiveIndex++)
+                {
+                    case 0:
+                        //Reset AnalogValuev to 0
+                        AnalogValue = 0;
+                        //Store high byte from channel 1 into the top 8 bits of AnalogValue
+                        AnalogValue = ((int)b << 8);
+                        break;
+                    case 1:
+                        //Store the low byte fron channel 1 into the bottom 8 bits of AnalogValue
+                        AnalogValue = AnalogValue | ((int)b);
+                        //Select Channel 1 for the ScopeBuffer
+                        ScopeBufferChannelSelect = 0;
+                        //Shift AnalogValue to the right two bits to remove the extra bits
+                        AnalogValue = AnalogValue >> 2;
+                        //Store AnalogValue into ScopeBuffer Channel 1
+                        ScopeBuffer[ScopeBufferChannelSelect][IncrEPTReceiveIndex(ScopeBufferChannelSelect)] = (int)AnalogValue;
+                        break;
+                    case 2:
+                        //Reset AnalogValuev to 0
+                        AnalogValue = 0;
+                        //Store high byte from channel 2 into the top 8 bits of AnalogValue
+                        AnalogValue = ((int)b << 8);
+                        break;
+                    case 3:
+                        //Store the low byte fron channel 2 into the bottom 8 bits of AnalogValue
+                        AnalogValue = AnalogValue | ((int)b);
+                        //Select Channel 1 for the ScopeBuffer
+                        ScopeBufferChannelSelect = 1;
+                        //Shift AnalogValue to the right two bits to remove the extra bits
+                        AnalogValue = AnalogValue >> 2;
+                        //Store AnalogValue into ScopeBuffer Channel 2
+                        ScopeBuffer[ScopeBufferChannelSelect][IncrEPTReceiveIndex(ScopeBufferChannelSelect)] = (int)AnalogValue;
+                        break;
+                    case 4:
+                        //Reset AnalogValuev to 0
+                        AnalogValue = 0;
+                        //Store high byte from channel 3 into the top 8 bits of AnalogValue
+                        AnalogValue = ((int)b << 8);
+                        break;
+                    case 5:
+                        //Store the low byte fron channel 3 into the bottom 8 bits of AnalogValue
+                        AnalogValue = AnalogValue | ((int)b);
+                        //Select Channel 1 for the ScopeBuffer
+                        ScopeBufferChannelSelect = 2;
+                        //Shift AnalogValue to the right two bits to remove the extra bits
+                        AnalogValue = AnalogValue >> 2;
+                        //Store AnalogValue into ScopeBuffer Channel 3
+                        ScopeBuffer[ScopeBufferChannelSelect][IncrEPTReceiveIndex(ScopeBufferChannelSelect)] = (int)AnalogValue;
+                        break;
+                    case 6:
+                        //Reset AnalogValuev to 0
+                        AnalogValue = 0;
+                        //Store high byte from channel 4 into the top 8 bits of AnalogValue
+                        AnalogValue = ((int)b << 8);
+                        break;
+                    case 7:
+                        //Store the low byte fron channel 4 into the bottom 8 bits of AnalogValue
+                        AnalogValue = AnalogValue | ((int)b);
+                        //Select Channel 1 for the ScopeBuffer
+                        ScopeBufferChannelSelect = 3;
+                        //Shift AnalogValue to the right two bits to remove the extra bits
+                        AnalogValue = AnalogValue >> 2;
+                        //Store AnalogValue into ScopeBuffer Channel 4
+                        ScopeBuffer[ScopeBufferChannelSelect][IncrEPTReceiveIndex(ScopeBufferChannelSelect)] = (int)AnalogValue;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        }
+
+        public void DisplayChannel2Setup()
+        {
+            ScopeBufferChannelSelect = 1;
+            ActiveChannels[ScopeBufferChannelSelect] = true;
+            this.Invoke(new MethodInvoker(delegate() { cmbChannelSelect.Items.Add((ScopeBufferChannelSelect + 1)); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_2_VerticalLabel = new Label(); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_2_VerticalLabel.ForeColor = Color.Red; }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_2_VerticalLabel.Location = new Point(480, 250); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_2_VerticalLabel.Font = new Font("Arial", 8); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_2_VerticalLabel.Text = "--Ch 2"; }));
+            this.Invoke(new MethodInvoker(delegate() { this.Controls.Add(Channel_2_VerticalLabel); }));
+        }
+
+        public void DisplayChannel3Setup()
+        {
+            ScopeBufferChannelSelect = 2;
+            ActiveChannels[ScopeBufferChannelSelect] = true;
+            this.Invoke(new MethodInvoker(delegate() { cmbChannelSelect.Items.Add((ScopeBufferChannelSelect + 1)); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_3_VerticalLabel = new Label(); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_3_VerticalLabel.ForeColor = Color.Blue; }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_3_VerticalLabel.Location = new Point(480, 250); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_3_VerticalLabel.Font = new Font("Arial", 8); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_3_VerticalLabel.Text = "--Ch 3"; }));
+            this.Invoke(new MethodInvoker(delegate() { this.Controls.Add(Channel_3_VerticalLabel); }));
+        }
+
+        public void DisplayChannel4Setup()
+        {
+            ScopeBufferChannelSelect = 3;
+            ActiveChannels[ScopeBufferChannelSelect] = true;
+            this.Invoke(new MethodInvoker(delegate() { cmbChannelSelect.Items.Add((ScopeBufferChannelSelect + 1)); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_4_VerticalLabel = new Label(); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_4_VerticalLabel.ForeColor = Color.Orange; }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_4_VerticalLabel.Location = new Point(480, 250); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_4_VerticalLabel.Font = new Font("Arial", 8); }));
+            this.Invoke(new MethodInvoker(delegate() { Channel_4_VerticalLabel.Text = "--Ch 4"; }));
+            this.Invoke(new MethodInvoker(delegate() { this.Controls.Add(Channel_4_VerticalLabel); }));
+        }
+
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            StartOscilloscope();
+        }
+
+        public void StartOscilloscope()
+        {
+            ScopeOn = true;
+
+            btnStart.Enabled = false;
+            btnStop.Enabled = true;
+
+            SetupRegister();
+
+            Thread.Sleep(1);
+
+            //Start ADC Conversion Continuous
+            EPT_AH_SendTrigger((byte)4);
+            //Replace SendTrigger with ControlByte
+
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            StopOscilloscope();
+        }
+
+        public void StopOscilloscope()
+        {
+            //timer1.Stop();
+            ScopeOn = false;
+
+            btnStart.Enabled = true;
+            btnStop.Enabled = false;
+
+            //Stop ADC Conversions
+            EPT_AH_SendTrigger((byte)8);
+
+            Invalidate();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Reset the ADC Fifo
+            ResetADCFifo();
+
+            Thread.Sleep(1);
+
+            EPT_AH_SendTransferControlByte((char)2, (char)4);
+
+            Thread.Sleep(1);
+
+            EPT_AH_SendTransferControlByte((char)2, (char)0);
+        }
+
+        private void btnConvRegister_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSetupRegister_Click(object sender, EventArgs e)
+        {
+            SetupRegister();
+        }
+
+        public void SetupRegister()
+        {
+            ResetADCFifo();
+
+            //Store the register value to transmit to the ADC.
+            EPT_AH_SendByte((char)1, (byte)0x48);
+            //Latch register value into CPLD
+            EPT_AH_SendTrigger((byte)2);
+
+            Thread.Sleep(1);
+
+            ////Master SPI Transmit Start to the ADC
+            EPT_AH_SendTrigger((byte)1);
+
+        }
+
+        private void btnAverageRegister_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnResetRegister_Click(object sender, EventArgs e)
+        {
+            ResetADCAll();
+        }
+
+        public void ResetADCAll()
+        {
+            //Store the register value to transmit to the ADC.
+            //EPT_AH_SendByte((char)1, (byte)0x10);
+            //Latch Value into CPLD
+            //EPT_AH_SendTrigger((byte)2);
+
+            Thread.Sleep(1);
+
+            //Master SPI Transmit Start to the ADC.
+            EPT_AH_SendTrigger((byte)1);
+
+        }
+
+        public void ResetADCFifo()
+        {
+            //Store the register value to transmit to the ADC.
+            EPT_AH_SendByte((char)1, (byte)0x18);
+            //Latch value into CPLD
+            EPT_AH_SendTrigger((byte)2);
+
+            Thread.Sleep(1);
+
+            //Master SPI Transmit Start to the ADC.
+            EPT_AH_SendTrigger((byte)1);
+
+
+        }
+
+        private void btnScanChannel_1_Click(object sender, EventArgs e)
+        {
+            //Store the register value to transmit to the ADC.
+            EPT_AH_SendByte((char)1, (byte)0x80);
+            //Latch value into CPLD
+            EPT_AH_SendTrigger((byte)2);
+
+            Thread.Sleep(1);
+
+            //Master SPI Transmit Start to the ADC.
+            EPT_AH_SendTrigger((byte)1);
+
+        }
+
+        private void btnScanChannels_1_2_Click(object sender, EventArgs e)
+        {
+            //Initialize the channel information
+            DisplayChannel2Setup();
+
+            //Store the register value to transmit to the ADC.
+            EPT_AH_SendByte((char)1, (byte)0x88);
+            //Latch value into CPLE
+            EPT_AH_SendTrigger((byte)2);
+
+            Thread.Sleep(1);
+
+            //Master SPI Transmit Start to the ADC.
+            EPT_AH_SendTrigger((byte)1);
+
+        }
+
+        private void btnScanChannels_1_2_3_Click(object sender, EventArgs e)
+        {
+            //Initialize the channel information
+            DisplayChannel2Setup();
+
+            //Initialize the channel information
+            DisplayChannel3Setup();
+
+            //Store the register value to transmit to the ADC.
+            EPT_AH_SendByte((char)1, (byte)0x90);
+            //Latch value into CPLD
+            EPT_AH_SendTrigger((byte)2);
+
+            Thread.Sleep(1);
+
+            //Master SPI Transmit Start to the ADC.
+            EPT_AH_SendTrigger((byte)1);
+
+        }
+
+        private void btnScanChannels_1_2_3_4_Click(object sender, EventArgs e)
+        {
+            //Initialize the channel information
+            DisplayChannel2Setup();
+
+            //Initialize the channel information
+            DisplayChannel3Setup();
+
+            //Initialize the channel information
+            DisplayChannel4Setup();
+
+            //Store the register value to transmit to the ADC.
+            EPT_AH_SendByte((char)1, (byte)0x98);
+            //Latch value into CPLD
+            EPT_AH_SendTrigger((byte)2);
+
+            Thread.Sleep(1);
+
+            //Master SPI Transmit Start to the ADC.
+            EPT_AH_SendTrigger((byte)1);
+
+
+        }
+
+        private void btnCursor1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblVoltage_P1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trkBrTimeBase_Scroll(object sender, EventArgs e)
+        {
+            byte[] ADCConversionDelayByte = new byte[3];
+            bool TimeBaseUpdateScopeOn = false;
+
+            if (ScopeOn)
+            {
+                TimeBaseUpdateScopeOn = true;
+                StopOscilloscope();
+                Thread.Sleep(1);
+            }
+
+            switch (trkBrTimeBase.Value)
+            {
+                case 1:
+                    ADCConversionDelayByte[0] = 0x02; //24'h10; //0.005ms
+                    ADCConversionDelayByte[1] = 0x00;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+                case 2:
+                    ADCConversionDelayByte[0] = 0x21; //24'h21; //0.010ms
+                    ADCConversionDelayByte[1] = 0x01;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+                case 3:
+                    ADCConversionDelayByte[0] = 0xd0; //24'h3de; //0.034ms
+                    ADCConversionDelayByte[1] = 0x03;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+                case 4:
+                    ADCConversionDelayByte[0] = 0x10; //24'h0910; //0.055ms
+                    ADCConversionDelayByte[1] = 0x09;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+                case 5:
+                    ADCConversionDelayByte[0] = 0xe4; //24'hce4; //0.07ms
+                    ADCConversionDelayByte[1] = 0x0c;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+                case 6:
+                    ADCConversionDelayByte[0] = 0xc8; //24'h19c8; //0.12ms
+                    ADCConversionDelayByte[1] = 0x19;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+                case 7:
+                    ADCConversionDelayByte[0] = 0xe8; //24'h80e8; //0.5ms
+                    ADCConversionDelayByte[1] = 0x80;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+                case 8:
+                    ADCConversionDelayByte[0] = 0xd0; //24'ha0d0; //0.65ms
+                    ADCConversionDelayByte[1] = 0xa0;
+                    ADCConversionDelayByte[2] = 0x001;
+                    break;
+                case 9:
+                    ADCConversionDelayByte[0] = 0x10; //24'h50910; //0.7ms
+                    ADCConversionDelayByte[1] = 0xc0;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+                case 10:
+                    ADCConversionDelayByte[0] = 0xff; //24'haffff; //1ms
+                    ADCConversionDelayByte[1] = 0xff;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+                default:
+                    ADCConversionDelayByte[0] = 0x20; //24'ha1220; //10ms
+                    ADCConversionDelayByte[1] = 0x12;
+                    ADCConversionDelayByte[2] = 0x00;
+                    break;
+
+            }
+
+            for (int Index = 0; Index < 3; Index++)
+            {
+
+                EPT_AH_SendByte((char)1, ADCConversionDelayByte[Index]);
+
+                //Latch value into CPLD
+                EPT_AH_SendTrigger((byte)( 0x10<<Index));
+
+                /*
+                EPT_AH_SendTransferControlByte((char)2, (char)(16 << Index));
+
+                EPT_AH_SendTransferControlByte((char)2, (char)0);
+                */
+            }
+
+            //Reset all of the EndTerm Channel variables
+         DisplayAddress_1 = true;
+         DisplayAddress_2 = false;
+         DisplayAddress_3 = false;
+         DisplayAddress_4 = false;
+         DisplayAddress_5 = false;
+         DisplayAddress_6 = false;
+
+         Channel1_Select = false;
+         Channel2_Select = false;
+         Channel3_Select = false;
+         Channel4_Select = false;
+         Channel5_Select = false;
+         Channel6_Select = false;
+
+
+         FirstDisplayByte = true;
+
+         FirstPreviousActualAddr = 0;
+         SecondPreviousActualAddr = 0;
+
+         FirstPreviousCalcAddr = 0;
+         SecondPreviousCalcAddr = 0;
+
+         AnalogValue = 0;
+         FloatValue = 0;
+
+
+            Thread.Sleep(1);
+            if (TimeBaseUpdateScopeOn)
+            {
+                StartOscilloscope();
+                Thread.Sleep(1);
+            }
+
+
+        }
+
+
+
+        }
+
+        public class Transfer
+        {
+            public int Command;
+            public int Address;
+            public int Length;
+            public int Payload;
+            public byte[] cBlockBuf;
+            public bool TransferPending;
+            public uint Repititions;
+
+            public Transfer()
+            {
+                Command = 0;
+                Address = 0;
+                Length = 0;
+                Payload = 0;
+                TransferPending = false;
+                Repititions = 0;
+            }
+
+        }
+
+
+}

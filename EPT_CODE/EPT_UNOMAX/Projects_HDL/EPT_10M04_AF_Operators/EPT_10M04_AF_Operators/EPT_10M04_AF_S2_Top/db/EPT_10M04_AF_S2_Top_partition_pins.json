@@ -1,0 +1,1545 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "ADDITION_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_THAN_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_THAN_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_THAN_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_THAN_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_THAN_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_THAN_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_THAN_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_THAN_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_THAN_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_THAN_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_THAN_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_THAN_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_THAN_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_THAN_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_THAN_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_THAN_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_EQUAL_THAN_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_EQUAL_THAN_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_EQUAL_THAN_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_EQUAL_THAN_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_EQUAL_THAN_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_EQUAL_THAN_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_EQUAL_THAN_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LESSER_EQUAL_THAN_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "NAND_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "NAND_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "NAND_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "NAND_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "NAND_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "NAND_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "NAND_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "NAND_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "OR_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OR_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "OR_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "OR_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "OR_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "OR_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "OR_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "OR_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "NOR_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "NOR_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "NOR_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "NOR_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "NOR_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "NOR_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "NOR_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "NOR_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "XOR_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "XOR_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "XOR_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "XOR_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "XOR_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "XOR_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "XOR_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "XOR_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "XNOR_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "XNOR_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "XNOR_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "XNOR_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "XNOR_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "XNOR_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "XNOR_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "XNOR_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RIGHT_SHIFT_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RIGHT_SHIFT_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RIGHT_SHIFT_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RIGHT_SHIFT_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RIGHT_SHIFT_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RIGHT_SHIFT_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RIGHT_SHIFT_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RIGHT_SHIFT_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LEFT_SHIFT_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEFT_SHIFT_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEFT_SHIFT_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LEFT_SHIFT_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LEFT_SHIFT_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LEFT_SHIFT_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LEFT_SHIFT_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LEFT_SHIFT_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_RESULT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_RESULT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_RESULT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_RESULT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_RESULT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_RESULT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_RESULT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_RESULT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDITION_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SUBTRACTION_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DIVISION_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_NEGATION_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_AND_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LOGICAL_OR_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_LESSER_THAN_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GREATER_EQUAL_THAN_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "EQUALITY_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "INEQUALITY_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "BITWISE_NEGATION_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GATE_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFT_OPERATOR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFT_OPERATOR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFT_OPERATOR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFT_OPERATOR[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFT_OPERATOR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFT_OPERATOR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFT_OPERATOR[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFT_OPERATOR[6]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "CONCATENATION_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "MULTIPLICATION_B[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
