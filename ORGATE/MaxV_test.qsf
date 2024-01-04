@@ -42,7 +42,7 @@ set_global_assignment -name DEVICE 5M570ZT100C5
 set_global_assignment -name TOP_LEVEL_ENTITY MaxV_test
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:26:34  DECEMBER 30, 2020"
-set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
 set_global_assignment -name VERILOG_FILE ../../../../Desktop/EPT_Active_Transfer_Library/eptWireOR.v
 set_global_assignment -name VQM_FILE ../../../../Desktop/EPT_Active_Transfer_Library/active_trigger.vqm
 set_global_assignment -name VQM_FILE ../../../../Desktop/EPT_Active_Transfer_Library/active_transfer_library.vqm
